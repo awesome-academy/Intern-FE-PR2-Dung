@@ -1,0 +1,13 @@
+.BannerV2__item {
+  text-align: start;
+
+  .BannerV2__item--iconLeft {
+    i {
+      font-size: 300%;
+      transition: all 0.5s;
+      &:hover {
+        font-size: 350%;
+      }
+    }
+  }
+}

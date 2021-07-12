@@ -1,23 +1,22 @@
-$XS: 480px;
-$SM: 768px;
-$MD: 1024px;
-$XL: 1170px;
-
+$xs: 480px;
+$sm: 768px;
+$md: 1024px;
+$xl: 1170px;
 @mixin Responsive($canvas) {
-  @if $canvas == XS {
-    @media only screen and (max-width: $XS) {
+  @if $canvas == xs {
+    @media only screen and (max-width: $xs) {
       @content;
     }
-  } @else if $canvas == SM {
-    @media only screen and (max-width: $SM) {
+  } @else if $canvas == sm {
+    @media only screen and (max-width: $sm) {
       @content;
     }
-  } @else if $canvas == MD {
-    @media only screen and (max-width: $MD) {
+  } @else if $canvas == md {
+    @media only screen and (max-width: $md) {
       @content;
     }
-  } @else if $canvas == XL {
-    @media only screen and (max-width: $XL) {
+  } @else if $canvas == xl {
+    @media only screen and (max-width: $xl) {
       @content;
     }
   }
