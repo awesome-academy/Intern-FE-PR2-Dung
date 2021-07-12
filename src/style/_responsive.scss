@@ -1,7 +1,4 @@
-$XS: 480px;
-$SM: 768px;
-$MD: 1024px;
-$XL: 1170px;
+
 
 @mixin Responsive($canvas) {
   @if $canvas == XS {
