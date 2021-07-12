@@ -1,0 +1,65 @@
+@import "../../style/responsive";
+@import "../../style/var";
+
+.home-page {
+  text-align: center;
+  .home-page__trendingproduct {
+    text-align: center;
+    h1 {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 1px;
+        background-color: black;
+        top: 100%;
+        transition: all 0.5s;
+      }
+
+      &:hover {
+        &::before {
+          width: 200px;
+        }
+      }
+    }
+
+    &--link {
+      color: black;
+      text-align: center;
+      border: 2px solid black;
+      padding: 0.7rem 2rem;
+      transition: all 0.5s;
+
+      &:hover {
+        text-decoration: none;
+        background-color: $pinkColor;
+        border: 2px solid $pinkColor;
+        color: white;
+      }
+    }
+  }
+
+  .homepage__bannerV2 {
+    .homepage__banner--header {
+      height: 500px;
+      background-image: url(https://cdn.shopify.com/s/files/1/0278/0466/3843/files/banner_v3.jpg?v=1577090983);
+
+      h2 {
+        padding-top: 10rem;
+        color: white;
+        font-size: 250%;
+      }
+    }
+  }
+
+  .home-page__boxintargram {
+    &--container {
+      .boxintargram__container--title {
+        i {
+          font-size: 350%;
+        }
+      }
+    }
+  }
+}

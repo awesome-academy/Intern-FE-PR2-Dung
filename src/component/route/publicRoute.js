@@ -1,6 +1,7 @@
 import { Route } from "react-router-dom";
 import Header from "../header";
 import Footer from "../footer";
+import React from "react";
 export default function RouterPublic({ component: Component, ...rest }) {
   return (
     <Route

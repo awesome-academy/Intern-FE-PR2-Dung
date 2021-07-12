@@ -1,11 +1,15 @@
-import ProfilePage from "./pages/profilePage/index";
 import "./App.css";
 import React from "react";
+import RouterPublic from "./component/route/publicRoute";
+import HomePage from "./pages/homePage";
+import { Switch } from "react-router";
 
 function App() {
   return (
     <div className="App">
-      <ProfilePage />
+      <Switch>
+        <RouterPublic component={HomePage} exact to="/" />
+      </Switch>
     </div>
   );
 }

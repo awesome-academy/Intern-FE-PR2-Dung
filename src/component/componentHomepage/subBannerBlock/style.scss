@@ -1,0 +1,76 @@
+@import "../../../style/_var";
+.homePage__subBanner--item {
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+  position: relative;
+  overflow: hidden;
+  img {
+    transition: all 0.5s;
+    width: 100%;
+  }
+  text-align: center;
+  .subBanner--item__infor {
+    text-align: center;
+    padding-top: 1rem;
+    position: absolute;
+    width: 40%;
+    background-color: $lightBg;
+    height: 30%;
+    top: 40%;
+    left: 30%;
+    h4 {
+      font-size: 150%;
+    }
+  }
+}
+
+.btn-link {
+  color: black;
+  position: relative;
+  transition: all 0.5s;
+  &:hover {
+    text-decoration: none;
+    color: lightsalmon;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    top: 100%;
+  }
+  &:hover {
+    &::before {
+      animation: hoverLink 0.75s;
+    }
+  }
+}
+
+@keyframes hoverLink {
+  0% {
+    width: 100%;
+    left: 0;
+  }
+  40% {
+    background-color: lightsalmon;
+    width: 0%;
+    right: 0;
+    left: 100%;
+  }
+  75% {
+    background-color: lightsalmon;
+    width: 0%;
+    left: 0;
+    right: 100%;
+  }
+  100% {
+    background-color: lightsalmon;
+    width: 100%;
+    left: 0%;
+    right: 0%;
+  }
+}

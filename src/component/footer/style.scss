@@ -1,0 +1,32 @@
+@import "../../style//var";
+.footer {
+  .footer__block {
+    .footer__block--itemLink {
+      list-style-type: none;
+      transition: all 0.5s;
+      cursor: pointer;
+      color: $lightDark;
+      font-weight: 500;
+      &:hover {
+        color: lightsalmon;
+      }
+    }
+    .footer__block--title {
+      position: relative;
+      transition: all 0.5s;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      &:hover {
+        color: lightsalmon;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 10%;
+        height: 2px;
+        background: $lightDark;
+        top: 100%;
+      }
+    }
+  }
+}
