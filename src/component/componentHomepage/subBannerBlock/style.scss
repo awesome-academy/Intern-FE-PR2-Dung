@@ -1,5 +1,5 @@
 @import "../../../style/_var";
-.homePage__subBanner--item {
+.home-page__sub-banner--item {
   &:hover {
     img {
       transform: scale(1.05);
@@ -12,7 +12,7 @@
     width: 100%;
   }
   text-align: center;
-  .subBanner--item__infor {
+  .sub-banner--item__infor {
     text-align: center;
     padding-top: 1rem;
     position: absolute;

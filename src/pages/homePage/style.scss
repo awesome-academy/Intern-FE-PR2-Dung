@@ -10,17 +10,11 @@
       &::before {
         content: "";
         position: absolute;
-        width: 0px;
-        height: 1px;
+        width: 200px;
+        height: 2px;
         background-color: black;
-        top: 100%;
+        top: 115%;
         transition: all 0.5s;
-      }
-
-      &:hover {
-        &::before {
-          width: 200px;
-        }
       }
     }
 
@@ -40,8 +34,8 @@
     }
   }
 
-  .homepage__bannerV2 {
-    .homepage__banner--header {
+  .home-page__bannerV2 {
+    .home-page__banner--header {
       height: 500px;
       background-image: url(https://cdn.shopify.com/s/files/1/0278/0466/3843/files/banner_v3.jpg?v=1577090983);
 

@@ -1,5 +1,7 @@
 @import "../../style//var";
 .footer {
+  box-shadow: 0px -5px 5px rgba(50, 50, 50, 0.75);
+  padding-bottom: 2rem;
   .footer__block {
     .footer__block--itemLink {
       list-style-type: none;

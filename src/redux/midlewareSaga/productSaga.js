@@ -6,7 +6,7 @@ import { call, put, takeLatest } from "@redux-saga/core/effects";
 import * as actionFunc from "../action/index";
 import * as actionType from "../../constants/actionConst";
 
-export default function* ProductSaga() {
+export default function* productSaga() {
   yield takeLatest(actionType.GET_PRODUCT, getProducts);
 }
 

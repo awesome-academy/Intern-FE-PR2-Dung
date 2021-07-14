@@ -1,0 +1,59 @@
+@import "../../style/var";
+
+.signup-page {
+  color: white;
+  &__form {
+    text-align: center;
+  }
+
+  h4 {
+    color: white;
+  }
+
+  &__subtitle {
+    margin-top: 1rem;
+    text-align: center;
+    i {
+      font-size: 200%;
+    }
+  }
+
+  input {
+    color: black;
+    background: none !important;
+  }
+
+  span {
+    color: white;
+
+    background: none;
+  }
+  ::placeholder {
+    color: white;
+  }
+
+  .signup-page__container {
+    background: url(https://preview.colorlib.com/theme/bootstrap/login-form-20/images/xbg.jpg.pagespeed.ic.tiVxeakBSd.webp);
+    background-size: 100%;
+    min-height: 700px;
+    padding: 2rem 0;
+    position: relative;
+    form {
+      button {
+        margin-left: 80%;
+      }
+    }
+  }
+
+  label {
+    color: white;
+  }
+  .form_signup {
+    background: $lightBgTrans;
+    width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px rgb(0, 0, 0);
+  }
+}
