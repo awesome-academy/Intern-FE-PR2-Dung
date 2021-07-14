@@ -1,0 +1,13 @@
+.banner-v2__item {
+  text-align: start;
+
+  .banner-v2__item--icon-left {
+    i {
+      font-size: 300%;
+      transition: all 0.5s;
+      &:hover {
+        font-size: 350%;
+      }
+    }
+  }
+}
