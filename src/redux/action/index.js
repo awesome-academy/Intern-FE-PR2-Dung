@@ -65,3 +65,62 @@ export const signUpEr = () => {
     type: actionType.SIGN_UP_ER,
   };
 };
+
+export const changeFilter = (filter) => {
+  return {
+    type: actionType.CHANGE_FILTER,
+    payload: filter,
+  };
+};
+
+export const addLoading = () => {
+  return {
+    type: actionType.ADD_LOADING,
+  };
+};
+
+export const cancelLoading = () => {
+  return {
+    type: actionType.CANCEL_LOADING,
+  };
+};
+
+export const getBrand = () => {
+  return { type: actionType.GET_BRAND };
+};
+export const getBrandSc = (brand) => {
+  return { type: actionType.GET_BRAND_SC, payload: brand };
+};
+export const getBrandEr = (brand) => {
+  return { type: actionType.GET_BRAND_ER, payload: brand };
+};
+
+export const getCategories = () => {
+  return { type: actionType.GET_CATEGORIES };
+};
+export const getCategoriesSc = (categories) => {
+  return { type: actionType.GET_CATEGORIES_SC, payload: categories };
+};
+export const getCategoriesEr = (categories) => {
+  return { type: actionType.GET_CATEGORIES_ER, payload: categories };
+};
+
+export const getSize = () => {
+  return { type: actionType.GET_SIZE };
+};
+export const getSizeSc = (size) => {
+  return { type: actionType.GET_SIZE_SC, payload: size };
+};
+export const getSizeEr = (size) => {
+  return { type: actionType.GET_SIZE_ER, payload: size };
+};
+
+export const getTag = () => {
+  return { type: actionType.GET_TAG };
+};
+export const getTagSc = (tag) => {
+  return { type: actionType.GET_TAG_SC, payload: tag };
+};
+export const getTagEr = (tag) => {
+  return { type: actionType.GET_TAG_ER, payload: tag };
+};

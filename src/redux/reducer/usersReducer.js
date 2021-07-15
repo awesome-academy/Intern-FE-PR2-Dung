@@ -9,7 +9,7 @@ const initState = {
   statusSignUp: undefined,
 };
 
-export default function UserReducer(state = initState, action) {
+export default function userReducer(state = initState, action) {
   let newState = { ...state };
   switch (action.type) {
     case actionType.LOGIN_SC:

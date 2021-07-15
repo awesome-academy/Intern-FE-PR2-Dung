@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n";
 import { store } from "./redux/store.js";
-import "./index.css";
+import "./index.scss";
 import App from "./App";
 
 i18n.init({

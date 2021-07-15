@@ -10,3 +10,23 @@ export const LOGOUT = "LOGOUT";
 export const SIGN_UP = "SIGN_UP";
 export const SIGN_UP_SC = "SIGN_UP_SC";
 export const SIGN_UP_ER = "SIGN_UP_ER";
+
+export const CHANGE_FILTER = "CHANGE_FILTER";
+export const ADD_LOADING = "LOADING";
+export const CANCEL_LOADING = "CANCEL_LOADING";
+
+export const GET_BRAND = "GET_BRAND";
+export const GET_BRAND_SC = "GET_BRAND_SC";
+export const GET_BRAND_ER = "GET_BRAND_ER";
+
+export const GET_CATEGORIES = "GET_CATEGORIES";
+export const GET_CATEGORIES_SC = "GET_CATEGORIES_SC";
+export const GET_CATEGORIES_ER = "GET_CATEGORIES_ER";
+
+export const GET_TAG = "GET_TAG";
+export const GET_TAG_SC = "GET_TAG_SC";
+export const GET_TAG_ER = "GET_TAG_ER";
+
+export const GET_SIZE = "GET_SIZE";
+export const GET_SIZE_SC = "GET_SIZE_SC";
+export const GET_SIZE_ER = "GET_SIZE_ER";
