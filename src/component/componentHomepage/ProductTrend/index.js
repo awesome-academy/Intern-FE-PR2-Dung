@@ -5,8 +5,10 @@ import React from "react";
 import ItemProduct from "../../share/itemproduct";
 
 export default function ProductTrend() {
+
   const productTrend = useSelector((state) => state.productsReducer.Product);
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(
       getProduct({

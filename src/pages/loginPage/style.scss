@@ -1,0 +1,44 @@
+@import "../../style/responsive";
+@import "../../style/var";
+
+.login-page {
+  background: url(https://preview.colorlib.com/theme/bootstrap/login-form-20/images/xbg.jpg.pagespeed.ic.tiVxeakBSd.webp);
+  min-height: 700px;
+  padding-top: 5rem;
+
+  input {
+    color: black;
+    background: none !important;
+    border-radius: 15px;
+  }
+
+  span {
+    color: white;
+    background-color: $lightBgTrans;
+  }
+  ::placeholder {
+    color: white;
+  }
+
+  .login-wrap {
+    height: auto;
+    overflow: hidden;
+    padding: 1rem;
+  }
+
+  .login-form {
+    background: $lightBgTrans;
+    width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px rgb(0, 0, 0);
+  }
+}
+
+@include Responsive(sm) {
+  #normal_login {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+}

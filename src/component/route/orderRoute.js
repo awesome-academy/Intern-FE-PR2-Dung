@@ -2,6 +2,8 @@
 import { Route, Redirect } from "react-router-dom";
 import Header from "../header";
 import Footer from "../footer";
+import React from "react";
+import * as linkRouter from "../../constants/router";
 
 export default function OrderRoute({ component: Component, ...rest }) {
   const isLogin = true;
@@ -16,7 +18,7 @@ export default function OrderRoute({ component: Component, ...rest }) {
             <Footer />
           </>
         ) : (
-          <Redirect to="/login" />
+          <Redirect to={linkRouter.login} />
         )
       }
     />
