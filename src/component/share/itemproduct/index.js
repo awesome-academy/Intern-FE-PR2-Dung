@@ -2,9 +2,11 @@ import { Tooltip, Modal } from "antd";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "antd/dist/antd.css";
+import { setRating } from "../../../component";
 import { Link } from "react-router-dom";
 import "./style.scss";
 import ModalVeiw from "../modalVeiwProduct";
+import { detail } from "../../../constants/router";
 
 export default function ItemProduct(props) {
   const product = props.product;
@@ -38,8 +40,7 @@ export default function ItemProduct(props) {
     >
       <img src={img} alt="picture Main" />
       <div className="product__item--body p-3">
-        <Link to={`/productdetail/${product.id}`}>{product.name}</Link>
-
+        <Link to={`${detail}/${product.id}`}>{product.name}</Link>
         <div className="d-flex">
           <p className="priceNew mr-3">${product.priceNew}</p>
           <p className="priceOld">${product.priceOld}</p>
@@ -79,18 +80,6 @@ export default function ItemProduct(props) {
     </div>
   );
 }
-
-const setRating = (rating) => {
-  let ratings = [];
-  for (let index = 0; index < 5; index++) {
-    if (index < rating) {
-      ratings[ratings.length] = <i className="fas fa-star"></i>;
-    } else {
-      ratings[ratings.length] = <i className="far fa-star"></i>;
-    }
-  }
-  return ratings;
-};
 
 const setDiscount = (priceOld, priceNew) => {
   let discount = 0;

@@ -1,5 +1,4 @@
 import { getData } from "../../api/productApi/productApi";
-// import { getProductSc } from "../action";
 import queryString from "query-string";
 import { URL_PRODUCT } from "../../constants/urlConst";
 import { call, put, takeLatest } from "@redux-saga/core/effects";
@@ -14,6 +13,7 @@ export default function* productSaga() {
 function* getProducts(action) {
   try {
     const param = queryString.stringify(action.payload);
+
     yield put(actionFunc.addLoading());
     const res = yield call(getData, `${URL_PRODUCT}?${param}`);
     yield delay(200);

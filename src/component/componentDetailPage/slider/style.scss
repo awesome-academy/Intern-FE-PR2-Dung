@@ -1,0 +1,17 @@
+.slider_image-roduct {
+  height: 650px;
+  .swiper-sub {
+    .swiper-slide {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .swiper-main {
+    height: 500px;
+    margin-bottom: 1rem;
+    .swiper-slide {
+      width: 400px;
+    }
+  }
+}

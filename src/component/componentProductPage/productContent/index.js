@@ -14,7 +14,6 @@ export default function ProductContent() {
   const filter = useSelector((state) => state.productsReducer.filter);
   const pagi = useSelector((state) => state.productsReducer.pagination);
   const isLoading = useSelector((state) => state.loading.isLoading);
-
   useEffect(() => {
     dispatch(
       getProduct({
