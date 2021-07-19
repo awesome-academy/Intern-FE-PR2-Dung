@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import SliderImageProduct from "../../component/componentDetailPage/slider";
 import "./style.scss";
@@ -9,9 +9,10 @@ import { InputNumber, Tabs } from "antd";
 import "antd/dist/antd.css";
 import ReveiwProduct from "../../component/componentDetailPage/review";
 import { useDispatch, useSelector } from "react-redux";
-import { getProduct } from "../../redux/action";
+import { addToCart, getProduct } from "../../redux/action";
 import ProductVeiwed from "../../component/componentDetailPage/slideProductVeiwed";
 import { KEY_PRODUCT_VEIWED } from "../../constants/urlConst";
+import { ToastContainer, toast } from "react-toastify";
 
 const { TabPane } = Tabs;
 
@@ -34,18 +35,30 @@ export default function DetailPage() {
     );
   }, []);
 
-  if (dataProductDetail) {
-    const data = JSON.parse(sessionStorage.getItem(KEY_PRODUCT_VEIWED)) || [];
-    if (data.findIndex((item) => item.name === dataProductDetail.name) === -1) {
-      data.push(dataProductDetail);
-      sessionStorage.setItem(KEY_PRODUCT_VEIWED, JSON.stringify(data));
+  const [dataOrder, setDataOrder] = useState({ number: 1, size: null });
+
+  const addToCartSCToast = () => toast.success(t("Add to cart success "));
+
+  useEffect(() => {
+    if (dataProductDetail) {
+      const dataVeiw =
+        JSON.parse(sessionStorage.getItem(KEY_PRODUCT_VEIWED)) || [];
+      if (
+        dataVeiw.findIndex((item) => item.name === dataProductDetail.name) ===
+        -1
+      ) {
+        dataVeiw.push(dataProductDetail);
+        sessionStorage.setItem(KEY_PRODUCT_VEIWED, JSON.stringify(dataVeiw));
+      }
     }
-  }
+  }, [dataProductDetail]);
+
   return (
     <main className="detail-product">
       <div className={`loading ${isLoading === true ? " d-block" : "d-none"}`}>
         <div className="lds-hourglass "></div>
       </div>
+      <ToastContainer />
       {data.length !== 0 && (
         <section className="container detail-product__container">
           <div className="bread-crumb">
@@ -77,6 +90,13 @@ export default function DetailPage() {
                         id={`size--${size}`}
                         name="size"
                         hidden
+                        onChange={(e) => {
+                          setDataOrder({
+                            ...dataOrder,
+                            size: parseInt(e.target.value),
+                          });
+                        }}
+                        value={size}
                       />
                       <div
                         className="size-filter__item m-2"
@@ -96,10 +116,26 @@ export default function DetailPage() {
                 <InputNumber
                   min={1}
                   max={dataProductDetail.number}
-                  defaultValue={3}
-                  onChange={() => {}}
+                  defaultValue={1}
+                  onChange={(value) => {
+                    setDataOrder({ ...dataOrder, number: value });
+                  }}
                 />
-                <button className="addtocart_modal ml-4">
+                <button
+                  className="addtocart_modal ml-4"
+                  onClick={() => {
+                    dispatch(
+                      addToCart({
+                        number: dataOrder.number,
+                        product: { ...dataProductDetail, size: dataOrder.size },
+                      })
+                    );
+                    addToCartSCToast();
+                  }}
+                  disabled={
+                    dataOrder.size === null || dataOrder.number === null
+                  }
+                >
                   {t("addtocart")}
                 </button>
               </div>
@@ -130,7 +166,6 @@ export default function DetailPage() {
             </Tabs>
           </div>
           <div className="product-detail__veiwed">
-           
             <ProductVeiwed />
           </div>
         </section>

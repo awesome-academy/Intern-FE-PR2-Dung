@@ -1,0 +1,48 @@
+.payment-page {
+  .payment_method {
+    .pay-method__item {
+      width: 100%;
+      height: 70px;
+      padding: 1rem;
+      border-radius: 15px;
+      align-items: center;
+      margin: 1rem;
+      border: 2px solid lightsalmon;
+
+      div {
+        width: 80%;
+        font-weight: 700;
+      }
+
+      input {
+        width: 20px;
+        height: 20px;
+        margin-right: 1rem;
+        cursor: pointer;
+      }
+
+      label {
+        width: 70%;
+      }
+
+      img {
+        width: 20%;
+      }
+    }
+  }
+  .payment-page__container {
+    h3 {
+      position: relative;
+      color: lightsalmon;
+      margin-bottom: 2rem;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        height: 2px;
+        width: 25px;
+        color: black;
+      }
+    }
+  }
+}

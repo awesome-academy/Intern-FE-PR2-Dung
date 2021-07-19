@@ -4,6 +4,7 @@ import loadingReducer from "./loading";
 import productReducer from "./productReducer";
 import userReducer from "./usersReducer";
 import commentReducer from "./commentReducer";
+import cartReducer from "./cart";
 
 export const Reducer = combineReducers({
   productsReducer: productReducer,
@@ -11,4 +12,5 @@ export const Reducer = combineReducers({
   loading: loadingReducer,
   filter: filterReducer,
   commentReducer: commentReducer,
+  cartReducer: cartReducer,
 });

@@ -67,76 +67,79 @@ export default function ReveiwProduct({ ratingCurrent, idProduct }) {
   }, []);
 
   return (
-    <div className="reveiw-comment m-3">
-      <h4>{t("Customer Reveiw")}</h4>
+    <>
       <ToastContainer />
-      <div className="reveiw-comment__header d-flex justify-content-between">
-        <p>
-          {setRating(ratingCurrent)}---{t("Based on")} {} {t("reviews")}
-        </p>
-        <button
-          onClick={() => {
-            setOpenForm(!openForm);
-          }}
-        >
-          {t("Write A Review")} +
-        </button>
-      </div>
-      {openForm === true && (
-        <div className="form_reveiw">
-          <hr />
-          <h6>{t("Write A Review")}</h6>
-          <div className="reveiw-user">
-            <Form onFinish={handleSubmitComment} form={form}>
-              <Form.Item
-                rules={[{ required: true }]}
-                label={t("Rating")}
-                name="rating"
-              >
-                <Rate></Rate>
-              </Form.Item>
-              <Form.Item
-                rules={[{ required: true }]}
-                label={t("body comment")}
-                name="comment"
-              >
-                <TextArea></TextArea>
-              </Form.Item>
-              <Form.Item wrapperCol={{ offset: 2 }}>
-                <button type="submit" className="btn-submit">
-                  {t("Submit comment")}
-                </button>
-              </Form.Item>
-            </Form>
+      <div className="reveiw-comment m-3">
+        <h4>{t("Customer Reveiw")}</h4>
+
+        <div className="reveiw-comment__header d-flex justify-content-between">
+          <p>
+            {setRating(ratingCurrent)}---{t("Based on")} {} {t("reviews")}
+          </p>
+          <button
+            onClick={() => {
+              setOpenForm(!openForm);
+            }}
+          >
+            {t("Write A Review")} +
+          </button>
+        </div>
+        {openForm === true && (
+          <div className="form_reveiw">
+            <hr />
+            <h6>{t("Write A Review")}</h6>
+            <div className="reveiw-user">
+              <Form onFinish={handleSubmitComment} form={form}>
+                <Form.Item
+                  rules={[{ required: true }]}
+                  label={t("Rating")}
+                  name="rating"
+                >
+                  <Rate></Rate>
+                </Form.Item>
+                <Form.Item
+                  rules={[{ required: true }]}
+                  label={t("body comment")}
+                  name="comment"
+                >
+                  <TextArea></TextArea>
+                </Form.Item>
+                <Form.Item wrapperCol={{ offset: 2 }}>
+                  <button type="submit" className="btn-submit">
+                    {t("Submit comment")}
+                  </button>
+                </Form.Item>
+              </Form>
+            </div>
           </div>
-        </div>
-      )}
-      <hr />
-      {comment.length !== 0 && (
-        <div>
-          {comment.map((commentItem) => {
-            const date = new Date(commentItem.createdAt);
-            return (
-              <>
-                <div className="rating_reveiw">
-                  {setRating(commentItem.rating)}
-                </div>
-                <span className="user-name"> {commentItem.userName} </span>{" "}
-                <span>{t("on")}</span>
-                <span className="date">{date.toDateString()}</span>
-                <p className="comment">{commentItem.comment}</p>
-                <hr />
-              </>
-            );
-          })}
-          <Pagination
-            defaultCurrent={1}
-            total={pagi._totalRows}
-            onChange={changePage}
-            pageSize={pagi._limit}
-          />
-        </div>
-      )}
-    </div>
+        )}
+        <hr />
+        {comment.length !== 0 && (
+          <div>
+            {comment.map((commentItem) => {
+              const date = new Date(commentItem.createdAt);
+              return (
+                <>
+                  <div className="rating_reveiw">
+                    {setRating(commentItem.rating)}
+                  </div>
+                  <span className="user-name"> {commentItem.userName} </span>{" "}
+                  <span>{t("on")}</span>
+                  <span className="date">{date.toDateString()}</span>
+                  <p className="comment">{commentItem.comment}</p>
+                  <hr />
+                </>
+              );
+            })}
+            <Pagination
+              defaultCurrent={1}
+              total={pagi._totalRows}
+              onChange={changePage}
+              pageSize={pagi._limit}
+            />
+          </div>
+        )}
+      </div>
+    </>
   );
 }

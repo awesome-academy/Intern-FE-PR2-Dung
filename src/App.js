@@ -10,6 +10,8 @@ import AdminPage from "./pages/adminPage";
 import * as linkRoute from "./constants/router";
 import ProductPage from "./pages/productPage";
 import DetailPage from "./pages/detailProductPage";
+import CartPage from "./pages/cartPage";
+import PaymentPage from "./pages/paymentPage";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <PublicRouter component={SignUpPage} path={linkRoute.signup} />
         <PublicRouter component={ProductPage} path={linkRoute.product} />
         <PublicRouter component={DetailPage} path={`${linkRoute.detail}/:id`} />
+        <PublicRouter component={PaymentPage} path={linkRoute.payment} />
+        <PublicRouter component={CartPage} path={linkRoute.cart} />
 
         <PrivateRoute component={AdminPage} path={linkRoute.admin} />
       </Switch>

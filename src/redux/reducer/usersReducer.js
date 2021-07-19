@@ -15,7 +15,7 @@ export default function userReducer(state = initState, action) {
   switch (action.type) {
     case actionType.LOGIN_SC:
       newState.isLogin = true;
-      if (action.payload[0].idRole === "2") newState.isAuthen = true;
+      if (action.payload[0].idRole === 2) newState.isAuthen = true;
       newState = { ...newState };
       return newState;
     case actionType.LOGIN_ER:

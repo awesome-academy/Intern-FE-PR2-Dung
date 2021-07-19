@@ -84,6 +84,13 @@
             background-color: white;
             color: lightsalmon;
           }
+
+          &:disabled {
+            background-color: white;
+            border: 2px solid black;
+            color: $lightDark;
+            cursor: no-drop;
+          }
         }
 
         .ant-input-number {

@@ -11,6 +11,23 @@
   text-align: start;
   transition: all 0.5s;
 
+  .ant-modal-content {
+    height: 500px;
+    overflow: hidden;
+
+    .modal-veiw-product {
+      width: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-wrapper {
+        height: 100%;
+      }
+    }
+  }
+
   img {
     width: 100%;
     height: 65%;
@@ -91,22 +108,5 @@
 @include Responsive(xs) {
   .product_item {
     margin: 1.5rem 0;
-  }
-}
-.ant-modal-content {
-  width: 800px;
-  height: 500px;
-  overflow: hidden;
-
-  .modal-veiw-product {
-    width: 100%;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-    
-    .swiper-wrapper {
-      height: 100%;
-    }
   }
 }

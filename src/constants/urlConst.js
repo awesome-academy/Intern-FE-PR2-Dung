@@ -2,6 +2,8 @@ export const URL_PRODUCT = "http://localhost:4444/api/product";
 
 export const URL_TAG = "http://localhost:4444/api/tags";
 
+export const URL_ORDER = "http://localhost:4444/api/orders";
+
 export const URL_CATEGORIES = "http://localhost:4444/api/categories";
 
 export const URL_SIZE = "http://localhost:4444/api/size";
@@ -19,3 +21,5 @@ export const KEY_IS_AUTH = "KEY_IS_AUTH";
 export const URL_COMMENT = "http://localhost:4444/api/comment";
 
 export const KEY_PRODUCT_VEIWED = "KEY_PRODUCT_VEIWED";
+
+export const KEY_CART = "KEY_CART";
