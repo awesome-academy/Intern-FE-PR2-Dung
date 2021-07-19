@@ -1,0 +1,54 @@
+@import "../../../style//var";
+.modal-veiw-product {
+  .size {
+    input {
+      &:checked {
+        + div {
+          background-color: black;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .priceOld {
+    text-decoration: line-through;
+    color: $lightDark;
+  }
+
+  .modal__product-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+  }
+
+  .size-title {
+    border-bottom: 2px solid black;
+  }
+
+  .block-btn {
+    margin-top: 1rem;
+    
+    .ant-input-number,
+    .addtocart_modal {
+      border: 2px solid black;
+      width: 80px;
+      height: 40px;
+    }
+
+    .ant-input-number-handler-wrap {
+      border-left: 2px solid black;
+    }
+
+    .addtocart_modal {
+      width: 150px;
+      background: black;
+      color: white;
+      text-transform: uppercase;
+      margin-left: 0.5rem;
+    }
+  }
+}

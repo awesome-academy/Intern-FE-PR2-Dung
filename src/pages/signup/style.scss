@@ -1,5 +1,5 @@
 @import "../../style/var";
-
+@import "../../style/responsive";
 .signup-page {
   color: white;
   &__form {
@@ -34,13 +34,16 @@
 
   .signup-page__container {
     background: url(https://preview.colorlib.com/theme/bootstrap/login-form-20/images/xbg.jpg.pagespeed.ic.tiVxeakBSd.webp);
-    background-size: 100%;
+    background-size: 100% 100%;
     min-height: 700px;
     padding: 2rem 0;
     position: relative;
     form {
       button {
         margin-left: 80%;
+        @include Responsive(sm) {
+          margin-left: 1rem;
+        }
       }
     }
   }
@@ -50,7 +53,7 @@
   }
   .form_signup {
     background: $lightBgTrans;
-    width: 700px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 2rem;
     border-radius: 15px;

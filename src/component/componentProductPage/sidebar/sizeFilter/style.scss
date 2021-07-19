@@ -1,0 +1,24 @@
+@import "../../../../style//var";
+.size-filter {
+  &__item {
+    width: 30px;
+    height: 30px;
+    border: 2px solid $lightDark;
+    text-align: center;
+    color: $lightDark;
+    font-weight: 700;
+    transition: all 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      color: white;
+      background-color: black;
+      border-color: black;
+    }
+  }
+  .active {
+    color: white;
+    background-color: black;
+    border-color: black;
+  }
+}

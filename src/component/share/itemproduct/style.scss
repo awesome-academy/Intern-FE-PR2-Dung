@@ -10,9 +10,23 @@
   border: 1px solid $lightDark;
   text-align: start;
   transition: all 0.5s;
+
   img {
     width: 100%;
     height: 65%;
+  }
+
+  .discount {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    font-weight: 500;
+    font-size: 110%;
+    text-align: center;
   }
 
   .priceOld {
@@ -77,5 +91,22 @@
 @include Responsive(xs) {
   .product_item {
     margin: 1.5rem 0;
+  }
+}
+.ant-modal-content {
+  width: 800px;
+  height: 500px;
+  overflow: hidden;
+
+  .modal-veiw-product {
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .swiper-wrapper {
+      height: 100%;
+    }
   }
 }

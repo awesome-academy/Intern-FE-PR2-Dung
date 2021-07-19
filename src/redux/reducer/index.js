@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import ProductReducer from "./productReducer";
-import UserReducer from "./usersReducer";
+import filterReducer from "./filterReducer";
+import loadingReducer from "./loading";
+import productReducer from "./productReducer";
+import userReducer from "./usersReducer";
 
 export const Reducer = combineReducers({
-  productsReducer: ProductReducer,
-  usersReducer: UserReducer,
+  productsReducer: productReducer,
+  usersReducer: userReducer,
+  loading: loadingReducer,
+  filter: filterReducer,
 });

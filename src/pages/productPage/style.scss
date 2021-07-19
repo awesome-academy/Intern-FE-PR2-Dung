@@ -1,0 +1,30 @@
+@import "../../style/var";
+.product-page {
+  &__main {
+    &--banner {
+      text-align: center;
+      padding-top: 5rem;
+      min-height: 400px;
+      background-image: url(https://cdn.shopify.com/s/files/1/0278/0466/3843/files/shop-bg-li.jpg?v=1575615305);
+
+      .link-home {
+        a {
+          color: black;
+          font-weight: 500;
+          margin-right: 0.2rem;
+        }
+      }
+
+      .current_page {
+        color: $lightDark;
+      }
+    }
+
+    &--body {
+      margin-top: 1.5rem;
+    }
+  }
+}
+.container-product__wrap {
+  padding: 0 2.2rem;
+}

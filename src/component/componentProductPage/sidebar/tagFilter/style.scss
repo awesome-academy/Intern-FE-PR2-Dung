@@ -1,0 +1,23 @@
+@import "../../../../style/var";
+.tag {
+  &-item {
+    padding: 0.3rem 0.5rem;
+    border: 1px solid $lightDark;
+    text-align: center;
+    color: $lightDark;
+    font-weight: 700;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0.2rem;
+
+    &:hover {
+      color: black;
+      border-color: black;
+    }
+  }
+
+  .active {
+    color: black;
+    border-color: black;
+  }
+}
