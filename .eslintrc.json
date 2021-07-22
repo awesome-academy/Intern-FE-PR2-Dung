@@ -21,6 +21,7 @@
   },
   "globals": {
       "localStorage": true,
+      "sessionStorage": true,
       "ga": true,
       "fetch": true,
       "window": true,

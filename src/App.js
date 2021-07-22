@@ -9,6 +9,7 @@ import PrivateRoute from "./component/route/privateRoute";
 import AdminPage from "./pages/adminPage";
 import * as linkRoute from "./constants/router";
 import ProductPage from "./pages/productPage";
+import DetailPage from "./pages/detailProductPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <PublicRouter component={LoginPage} path={linkRoute.login} />
         <PublicRouter component={SignUpPage} path={linkRoute.signup} />
         <PublicRouter component={ProductPage} path={linkRoute.product} />
+        <PublicRouter component={DetailPage} path={`${linkRoute.detail}/:id`} />
 
         <PrivateRoute component={AdminPage} path={linkRoute.admin} />
       </Switch>

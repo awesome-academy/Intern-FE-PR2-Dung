@@ -1,0 +1,135 @@
+@import "../../style/var";
+
+.detail-product {
+  &__container {
+    .product-detail__veiwed {
+      text-align: center;
+
+      h4 {
+        color: black;
+        text-transform: uppercase;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 120px;
+          height: 2px;
+          background-color: black;
+          top: 115%;
+          transition: all 0.5s;
+        }
+      }
+    }
+    &--wrap {
+      .productdetail-price {
+        .priceOld {
+          text-decoration: line-through;
+          color: $lightDark;
+        }
+
+        .priceNew {
+          color: lightsalmon;
+        }
+      }
+
+      .productdetail-rating {
+        color: $star;
+      }
+
+      .size {
+        .size-filter__item {
+          cursor: pointer;
+          transition: all 0.5s;
+          width: 30px;
+          height: 30px;
+          border: 2px solid $lightDark;
+          color: $lightDark;
+          text-align: center;
+          font-weight: 500;
+          &:hover {
+            border: 2px solid black;
+            color: white;
+            background-color: black;
+          }
+        }
+
+        input {
+          &:checked {
+            + div {
+              border: 2px solid black;
+              color: white;
+              background-color: black;
+            }
+          }
+        }
+
+        .size-title {
+          text-transform: uppercase;
+        }
+      }
+
+      .block-btn {
+        button {
+          background-color: lightsalmon;
+          border: none;
+          border-radius: 5px;
+          padding: 0.9rem 1rem;
+          text-transform: uppercase;
+          transition: all 0.5s;
+          border: 1px solid lightsalmon;
+          color: white;
+          &:hover {
+            border: 1px solid lightsalmon;
+            background-color: white;
+            color: lightsalmon;
+          }
+        }
+
+        .ant-input-number {
+          border: 2px solid black;
+          color: black;
+          border-radius: 5px;
+          padding: 0.5rem 1rem;
+
+          .ant-input-number-handler-wrap {
+            border-left: 2px solid black;
+          }
+        }
+      }
+    }
+
+    .productdetail__moreinf {
+      span {
+        color: $lightDark;
+        transition: all 0.5s;
+        &:hover {
+          color: black;
+        }
+      }
+    }
+
+    .ant-tabs-tab-btn {
+      font-size: 130%;
+      color: black;
+      cursor: pointer;
+    }
+
+    .ant-tabs-tab-active {
+      .ant-tabs-tab-btn {
+        color: lightsalmon;
+        text-decoration: lightsalmon;
+      }
+    }
+  }
+}
+.bread-crumb {
+  margin-top: 1rem;
+  color: $lightDark;
+  a {
+    color: $lightDark;
+    &:hover {
+      color: yellowgreen;
+    }
+  }
+}

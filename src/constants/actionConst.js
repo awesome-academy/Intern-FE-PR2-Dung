@@ -30,3 +30,15 @@ export const GET_TAG_ER = "GET_TAG_ER";
 export const GET_SIZE = "GET_SIZE";
 export const GET_SIZE_SC = "GET_SIZE_SC";
 export const GET_SIZE_ER = "GET_SIZE_ER";
+
+export const ADD_COMMENT = "ADD_COMMENT";
+export const ADD_COMMENT_SC = "ADD_COMMENT_SC";
+export const ADD_COMMENT_ER = "ADD_COMMENT_ER";
+
+export const GET_COMMENT = "GET_COMMENT";
+export const GET_COMMENT_SC = "GET_COMMENT_SC";
+export const GET_COMMENT_ER = "GET_COMMENT_ER";
+
+export const GET_USER = "GET_USER";
+export const GET_USER_SC = "GET_USER_SC";
+export const GET_USER_ER = "GET_USER_ER";

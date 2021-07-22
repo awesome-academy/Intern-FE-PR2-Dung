@@ -13,3 +13,5 @@ export const home = "/";
 export const cart = "/cart";
 
 export const admin = "/admin";
+
+export const detail = "/detail";

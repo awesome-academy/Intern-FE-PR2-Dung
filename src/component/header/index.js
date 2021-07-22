@@ -1,5 +1,5 @@
 import "./style.scss";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { KEY_IS_LOGIN, KEY_TOKEN } from "../../constants/urlConst";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../redux/action";
+import { getUser, logout } from "../../redux/action";
 import jwt_decode from "jwt-decode";
 import * as linkRouter from "../../constants/router";
 
@@ -21,14 +21,15 @@ export default function Header() {
     { label: t("product"), link: linkRouter.product },
     { label: t("profile"), link: linkRouter.profile },
   ];
-
   const isLogin = useSelector((state) => state.usersReducer.isLogin);
   const dispatch = useDispatch();
-
   const token = localStorage.getItem(KEY_TOKEN);
-  let user = "";
-
+  let user = { email: "" };
   if (token) user = jwt_decode(token);
+  useEffect(() => {
+    dispatch(getUser({ email: user.email }));
+  }, []);
+
   return (
     <header className="header">
       <div className="headertop d-flex justify-content-end p-2">

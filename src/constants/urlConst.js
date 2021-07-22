@@ -15,3 +15,7 @@ export const KEY_TOKEN = "KEY_TOKEN";
 export const KEY_IS_LOGIN = "KEY_IS_LOGIN";
 
 export const KEY_IS_AUTH = "KEY_IS_AUTH";
+
+export const URL_COMMENT = "http://localhost:4444/api/comment";
+
+export const KEY_PRODUCT_VEIWED = "KEY_PRODUCT_VEIWED";

@@ -124,3 +124,33 @@ export const getTagSc = (tag) => {
 export const getTagEr = (tag) => {
   return { type: actionType.GET_TAG_ER, payload: tag };
 };
+
+export const getComment = (data) => {
+  return { type: actionType.GET_COMMENT, payload: data };
+};
+export const getCommentSc = (data) => {
+  return { type: actionType.GET_COMMENT_SC, payload: data };
+};
+export const getCommentEr = (data) => {
+  return { type: actionType.GET_COMMENT_ER, payload: data };
+};
+
+export const addComment = (data) => {
+  return { type: actionType.ADD_COMMENT, payload: data };
+};
+export const addCommentSc = (data) => {
+  return { type: actionType.ADD_COMMENT_SC, payload: data };
+};
+export const addCommentEr = (data) => {
+  return { type: actionType.ADD_COMMENT_ER, payload: data };
+};
+
+export const getUser = (data) => {
+  return { type: actionType.GET_USER, payload: data };
+};
+export const getUserSc = (data) => {
+  return { type: actionType.GET_USER_SC, payload: data };
+};
+export const getUserEr = (data) => {
+  return { type: actionType.GET_USER_ER, payload: data };
+};

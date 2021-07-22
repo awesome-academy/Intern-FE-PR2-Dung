@@ -1,0 +1,46 @@
+.reveiw-comment {
+  .rating_reveiw {
+    font-size: 80%;
+    color: yellow;
+  }
+
+  .user-name,
+  .date {
+    font-weight: 500;
+  }
+
+  .btn-submit {
+    border: 1px solid lightsalmon;
+    background: none;
+    color: lightsalmon;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    transition: all 0.5s;
+    &:hover {
+      background: lightsalmon;
+      color: white;
+    }
+  }
+  
+  .reveiw-comment__header {
+    button {
+      transition: all 0.5s;
+      border: none;
+      background: none;
+      outline: none;
+
+      &:hover {
+        color: lightsalmon;
+      }
+    }
+  }
+
+  .reveiw-user {
+    .ant-rate-star {
+      font-size: 80%;
+    }
+  }
+}
+.swiper-sub .swiper-wrapper {
+  height: 100px !important;
+}
