@@ -5,6 +5,7 @@ import productReducer from "./productReducer";
 import userReducer from "./usersReducer";
 import commentReducer from "./commentReducer";
 import cartReducer from "./cart";
+import ordersReducer from "./order";
 
 export const Reducer = combineReducers({
   productsReducer: productReducer,
@@ -13,4 +14,5 @@ export const Reducer = combineReducers({
   filter: filterReducer,
   commentReducer: commentReducer,
   cartReducer: cartReducer,
+  orderReducer: ordersReducer,
 });

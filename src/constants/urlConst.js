@@ -23,3 +23,6 @@ export const URL_COMMENT = "http://localhost:4444/api/comment";
 export const KEY_PRODUCT_VEIWED = "KEY_PRODUCT_VEIWED";
 
 export const KEY_CART = "KEY_CART";
+
+export const AVATAR_DEFAULT =
+  "https://www.bootdey.com/img/Content/avatar/avatar7.png";

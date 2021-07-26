@@ -2,10 +2,9 @@ import { Input, Form, Select, Button, Modal } from "antd";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { handleTotalCost } from "../../component";
-import { KEY_CART } from "../../constants/urlConst";
-import { addOrder } from "../../redux/action";
+import { addOrder, removeCart } from "../../redux/action";
 import "./style.scss";
 const { Option } = Select;
 
@@ -119,6 +118,10 @@ export default function PaymentPage() {
           </tr>
         </table>
       ),
+      onOk() {
+        return <Redirect to="/" />;
+      },
+      okButtonProps: { type: "link", href: "/" },
     });
   }
 
@@ -131,7 +134,7 @@ export default function PaymentPage() {
         payMethod: valuePayMethod,
       })
     );
-    localStorage.removeItem(KEY_CART);
+    dispatch(removeCart());
   };
 
   return (

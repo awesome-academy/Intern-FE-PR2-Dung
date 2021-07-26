@@ -46,6 +46,19 @@ export const GET_USER_ER = "GET_USER_ER";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const CHANGE_CART = "CHANGE_CART";
 export const DELETE_CART = "DELETE_CART";
+export const REMOVE_CART = "REMOVE_CART";
 
 export const ADD_ORDER = "ADD_ORDER";
 export const ADD_ORDER_ER = "ADD_ORDER_ER";
+
+export const EDIT_USER = "EDIT_USER";
+export const EDIT_USER_SC = "EDIT_USER_SC";
+export const EDIT_USER_ER = "EDIT_USER_ER";
+
+export const GET_ORDER = "GET_ORDER";
+export const GET_ORDER_SC = "GET_ORDER_SC";
+export const GET_ORDER_ER = "GET_ORDER_ER";
+
+export const GET_PRODUCT_SEARCH = "GET_PRODUCT_SEARCH";
+export const GET_PRODUCT_SEARCH_SC = "GET_PRODUCT_SEARCH_SC";
+export const GET_PRODUCT_SEARCH_ER = "GET_PRODUCT_SEARCH_ER";
