@@ -42,3 +42,10 @@ export const GET_COMMENT_ER = "GET_COMMENT_ER";
 export const GET_USER = "GET_USER";
 export const GET_USER_SC = "GET_USER_SC";
 export const GET_USER_ER = "GET_USER_ER";
+
+export const ADD_TO_CART = "ADD_TO_CART";
+export const CHANGE_CART = "CHANGE_CART";
+export const DELETE_CART = "DELETE_CART";
+
+export const ADD_ORDER = "ADD_ORDER";
+export const ADD_ORDER_ER = "ADD_ORDER_ER";

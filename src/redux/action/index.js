@@ -154,3 +154,38 @@ export const getUserSc = (data) => {
 export const getUserEr = (data) => {
   return { type: actionType.GET_USER_ER, payload: data };
 };
+
+export const addToCart = (data) => {
+  return {
+    type: actionType.ADD_TO_CART,
+    payload: data,
+  };
+};
+
+export const changeCart = (data) => {
+  return {
+    type: actionType.CHANGE_CART,
+    payload: data,
+  };
+};
+
+export const deleteCart = (data) => {
+  return {
+    type: actionType.DELETE_CART,
+    payload: data,
+  };
+};
+
+export const addOrder = (data) => {
+  return {
+    type: actionType.ADD_ORDER,
+    payload: data,
+  };
+};
+
+export const addOrderEr = (data) => {
+  return {
+    type: actionType.ADD_ORDER_ER,
+    payload: data,
+  };
+};

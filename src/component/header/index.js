@@ -22,10 +22,14 @@ export default function Header() {
     { label: t("profile"), link: linkRouter.profile },
   ];
   const isLogin = useSelector((state) => state.usersReducer.isLogin);
+  const cart = useSelector((state) => state.cartReducer.cart);
+
   const dispatch = useDispatch();
   const token = localStorage.getItem(KEY_TOKEN);
   let user = { email: "" };
+
   if (token) user = jwt_decode(token);
+
   useEffect(() => {
     dispatch(getUser({ email: user.email }));
   }, []);
@@ -104,8 +108,12 @@ export default function Header() {
             <button className="btn-header">
               <i className="fas fa-search"></i>
             </button>
-            <button className="btn-header">
-              <i className="fas fa-shopping-cart"></i>
+            <button className="btn-header btn-cart">
+              <Link to={linkRouter.cart}>
+                {" "}
+                <i className="fas fa-shopping-cart"></i>
+                <div>{cart.length}</div>
+              </Link>
             </button>
           </div>
           <button
