@@ -17,3 +17,9 @@ export const admin = "/admin";
 export const detail = "/detail";
 
 export const payment = "/payment";
+
+export const adminUsers = "/admin/users";
+
+export const adminProducts = "/admin/products";
+
+export const adminOrders = "/admin/orders";

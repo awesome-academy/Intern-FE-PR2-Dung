@@ -1,0 +1,29 @@
+@import "../../../style/var";
+.sidebar-admin {
+  background-color: $darkBg;
+  height: 100vh;
+  padding: 10px;
+  .sibar-list {
+    padding: 0;
+    width: 100%;
+    .title_logo {
+      color: white;
+      padding: 0.5rem;
+    }
+    li {
+      list-style-type: none;
+      padding: 0.7rem 0.5rem;
+      font-size: 110%;
+      width: 100%;
+
+      a {
+        color: white;
+      }
+    }
+
+    li.active {
+      background-color: $bgActive;
+      border-radius: 5px;
+    }
+  }
+}

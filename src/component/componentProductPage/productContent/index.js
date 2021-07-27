@@ -17,13 +17,12 @@ export default function ProductContent() {
   useEffect(() => {
     dispatch(
       getProduct({
-        _page: pagi._page,
+        _page: 1,
         _limit: pagi._limit,
         ...filter,
       })
     );
   }, [filter]);
-
   const changePagi = (pageCurrent, size) => {
     const pagination = { _limit: size, _page: pageCurrent };
     dispatch(
@@ -77,7 +76,7 @@ export default function ProductContent() {
       <div className="row">
         {dataProduct.length !== 0 ? (
           <Pagination
-            defaultCurrent={1}
+            current={pagi._page}
             total={pagi._totalRows}
             defaultPageSize={9}
             onChange={changePagi}

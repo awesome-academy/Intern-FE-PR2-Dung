@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { handleTotalCost } from "../../component";
-import { KEY_CART } from "../../constants/urlConst";
-import { addOrder } from "../../redux/action";
+import { formatCost, handleTotalCost } from "../../component";
+import { addOrder, removeCart } from "../../redux/action";
 import "./style.scss";
 const { Option } = Select;
 
@@ -115,10 +114,11 @@ export default function PaymentPage() {
           </tr>
           <tr>
             <td> Total cost :</td>
-            <td> {handleTotalCost(cart)}</td>
+            <td> {formatCost(handleTotalCost(cart))}</td>
           </tr>
         </table>
       ),
+      okButtonProps: { type: "link", href: "/" },
     });
   }
 
@@ -131,7 +131,7 @@ export default function PaymentPage() {
         payMethod: valuePayMethod,
       })
     );
-    localStorage.removeItem(KEY_CART);
+    dispatch(removeCart());
   };
 
   return (

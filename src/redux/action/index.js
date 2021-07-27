@@ -176,6 +176,12 @@ export const deleteCart = (data) => {
   };
 };
 
+export const removeCart = () => {
+  return {
+    type: actionType.REMOVE_CART,
+  };
+};
+
 export const addOrder = (data) => {
   return {
     type: actionType.ADD_ORDER,
@@ -188,4 +194,88 @@ export const addOrderEr = (data) => {
     type: actionType.ADD_ORDER_ER,
     payload: data,
   };
+};
+
+export const editUser = (data) => {
+  return { type: actionType.EDIT_USER, payload: data };
+};
+export const editUserSc = (data) => {
+  return { type: actionType.EDIT_USER_SC, payload: data };
+};
+export const editUserEr = (data) => {
+  return { type: actionType.EDIT_USER_ER, payload: data };
+};
+
+export const getOrder = (data) => {
+  return { type: actionType.GET_ORDER, payload: data };
+};
+export const getOrderSc = (data) => {
+  return { type: actionType.GET_ORDER_SC, payload: data };
+};
+export const getOrderEr = (data) => {
+  return { type: actionType.GET_ORDER_ER, payload: data };
+};
+
+export const getProductSearch = (filter) => {
+  return {
+    type: actionType.GET_PRODUCT_SEARCH,
+    payload: filter,
+  };
+};
+
+export const getProductSearchSc = (data) => {
+  return {
+    type: actionType.GET_PRODUCT_SEARCH_SC,
+    payload: data,
+  };
+};
+
+export const getProductSearchEr = (err) => {
+  return {
+    type: actionType.GET_PRODUCT_SEARCH_ER,
+    payload: err,
+  };
+};
+
+export const getOrderAll = () => {
+  return { type: actionType.GET_ORDER_ALL };
+};
+
+export const getOrderAllSc = (data) => {
+  return { type: actionType.GET_ORDER_ALL_SC, payload: data };
+};
+export const getOrderAllEr = (data) => {
+  return { type: actionType.GET_ORDER_ALL_ER, payload: data };
+};
+
+export const deleteUser = (data) => {
+  return { type: actionType.DELETE_USER, payload: data };
+};
+
+export const deleteUserEr = (data) => {
+  return { type: actionType.DELETE_USER_ER, payload: data };
+};
+
+export const deleteProduct = (data) => {
+  return { type: actionType.DELETE_PRODUCT, payload: data };
+};
+
+export const deleteProductEr = (data) => {
+  return { type: actionType.DELETE_PRODUCT_ER, payload: data };
+};
+
+export const addProduct = (data) => {
+  return { type: actionType.ADD_PRODUCT, payload: data };
+};
+
+export const addProductEr = (data) => {
+  return { type: actionType.ADD_PRODUCT_ER, payload: data };
+};
+
+export const editProduct = (data) => {
+  return { type: actionType.EDIT_PRODUCT, payload: data };
+};
+
+export const editProductEr = (data) => {
+  return { type: actionType.EDIT_PRODUCT_ER, payload: data };
 };
