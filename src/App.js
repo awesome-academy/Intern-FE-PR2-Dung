@@ -10,6 +10,8 @@ import AdminPage from "./pages/adminPage";
 import * as linkRoute from "./constants/router";
 import ProductPage from "./pages/productPage";
 import DetailPage from "./pages/detailProductPage";
+import OrderRoute from "./component/route/orderRoute";
+import ProfilePage from "./pages/profilePage";
 import CartPage from "./pages/cartPage";
 import PaymentPage from "./pages/paymentPage";
 
@@ -21,9 +23,11 @@ function App() {
         <PublicRouter component={LoginPage} path={linkRoute.login} />
         <PublicRouter component={SignUpPage} path={linkRoute.signup} />
         <PublicRouter component={ProductPage} path={linkRoute.product} />
-        <PublicRouter component={DetailPage} path={`${linkRoute.detail}/:id`} />
-        <PublicRouter component={PaymentPage} path={linkRoute.payment} />
         <PublicRouter component={CartPage} path={linkRoute.cart} />
+        <PublicRouter component={DetailPage} path={`${linkRoute.detail}/:id`} />
+
+        <OrderRoute component={ProfilePage} path={linkRoute.profile} />
+        <OrderRoute component={PaymentPage} path={linkRoute.payment} />
 
         <PrivateRoute component={AdminPage} path={linkRoute.admin} />
       </Switch>

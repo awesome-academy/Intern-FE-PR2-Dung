@@ -33,7 +33,7 @@ export default function DetailPage() {
         id: param.id,
       })
     );
-  }, []);
+  }, [param.id]);
 
   const [dataOrder, setDataOrder] = useState({ number: 1, size: null });
 

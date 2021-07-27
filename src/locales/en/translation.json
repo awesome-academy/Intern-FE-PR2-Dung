@@ -135,5 +135,20 @@
   "Please format your email": "Please format your email",
   "online payment": "online payment",
   "Payment on delivery": "Payment on delivery",
-  "Order success": "Order success"
+  "Order success": "Order success",
+  "name": "Name :",
+  "birthday": "Birthday",
+  "phone": "Phone",
+  "userName": "User Name",
+  "Full Name": "Full Name",
+  "edit profile": "Edit Profile",
+  "Avatar": "Avatar",
+  "edit sc": "Edit Success",
+  "Change avt": "Change Avatar",
+  "Please input your avatar": "Please input your avatar",
+  "total Cost": "Total Cost",
+  "date": "Date",
+  "action": "Action",
+  "See details": "See details",
+  "History Orders": "History Orders"
 }

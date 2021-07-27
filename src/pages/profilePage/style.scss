@@ -1,0 +1,70 @@
+@import "../../style/var";
+.profile-page {
+  &__container {
+    border: 1px solid lightsalmon;
+    padding: 1rem;
+    border-radius: 50px;
+    .profile_left {
+      img {
+        width: 100%;
+        height: 300px;
+        border-radius: 30px;
+      }
+
+      .social-network {
+        text-align: center;
+        margin-top: 1rem;
+        i {
+          font-size: 150%;
+          color: $lightDark;
+          margin-right: 1rem;
+          transition: all 0.5s;
+          cursor: pointer;
+
+          &:hover {
+            color: lightsalmon;
+          }
+        }
+      }
+    }
+
+    .profile__main {
+      margin-top: 5rem;
+      .profile__main--content {
+        .inf-item {
+          .profile-label {
+            width: 150px;
+          }
+        }
+
+        h5 {
+          font-weight: 400;
+        }
+      }
+
+      button {
+        margin-top: 1rem;
+        font-weight: 500;
+        background: none;
+        border: 2px solid lightsalmon;
+        padding: 0.5rem 1rem;
+        color: lightsalmon;
+        text-transform: uppercase;
+        transition: all 0.5s;
+        border-radius: 10px;
+        outline: none;
+
+        &:hover {
+          background: lightsalmon;
+          color: white;
+          border-color: white;
+        }
+      }
+    }
+  }
+}
+.modal-edit-information {
+  .ant-modal-footer {
+    display: none !important;
+  }
+}

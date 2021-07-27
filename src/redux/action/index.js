@@ -176,6 +176,12 @@ export const deleteCart = (data) => {
   };
 };
 
+export const removeCart = () => {
+  return {
+    type: actionType.REMOVE_CART,
+  };
+};
+
 export const addOrder = (data) => {
   return {
     type: actionType.ADD_ORDER,
@@ -187,5 +193,46 @@ export const addOrderEr = (data) => {
   return {
     type: actionType.ADD_ORDER_ER,
     payload: data,
+  };
+};
+
+export const editUser = (data) => {
+  return { type: actionType.EDIT_USER, payload: data };
+};
+export const editUserSc = (data) => {
+  return { type: actionType.EDIT_USER_SC, payload: data };
+};
+export const editUserEr = (data) => {
+  return { type: actionType.EDIT_USER_ER, payload: data };
+};
+
+export const getOrder = (data) => {
+  return { type: actionType.GET_ORDER, payload: data };
+};
+export const getOrderSc = (data) => {
+  return { type: actionType.GET_ORDER_SC, payload: data };
+};
+export const getOrderEr = (data) => {
+  return { type: actionType.GET_ORDER_ER, payload: data };
+};
+
+export const getProductSearch = (filter) => {
+  return {
+    type: actionType.GET_PRODUCT_SEARCH,
+    payload: filter,
+  };
+};
+
+export const getProductSearchSc = (data) => {
+  return {
+    type: actionType.GET_PRODUCT_SEARCH_SC,
+    payload: data,
+  };
+};
+
+export const getProductSearchEr = (err) => {
+  return {
+    type: actionType.GET_PRODUCT_SEARCH_ER,
+    payload: err,
   };
 };

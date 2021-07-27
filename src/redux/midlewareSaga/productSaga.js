@@ -8,6 +8,7 @@ import { delay } from "redux-saga/effects";
 
 export default function* productSaga() {
   yield takeLatest(actionType.GET_PRODUCT, getProducts);
+  yield takeLatest(actionType.GET_PRODUCT_SEARCH, getProductSearch);
 }
 
 function* getProducts(action) {
@@ -21,5 +22,15 @@ function* getProducts(action) {
     yield put(actionFunc.getProductSc(res.data));
   } catch (error) {
     yield put(actionFunc.getProductEr(error));
+  }
+}
+
+function* getProductSearch(action) {
+  try {
+    const param = queryString.stringify(action.payload);
+    const res = yield call(getData, `${URL_PRODUCT}?${param}`);
+    yield put(actionFunc.getProductSearchSc(res.data));
+  } catch (error) {
+    yield put(actionFunc.getProductSearchEr(error));
   }
 }

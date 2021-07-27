@@ -5,7 +5,7 @@ const initState = {
   users: [],
   isAuthen: false,
   loginEr: false,
-  isLogin: localStorage.getItem(KEY_IS_LOGIN) || false,
+  isLogin: JSON.parse(localStorage.getItem(KEY_IS_LOGIN)) || false,
   statusSignUp: undefined,
 };
 
@@ -37,6 +37,10 @@ export default function userReducer(state = initState, action) {
     case actionType.GET_USER_SC:
       newState = { ...newState, users: action.payload.data };
       return newState;
+    case actionType.EDIT_USER_SC:
+      newState = { ...newState, users: [action.payload] };
+
+      return { ...newState };
     default:
       return state;
   }

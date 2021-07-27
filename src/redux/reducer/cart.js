@@ -42,8 +42,12 @@ export default function cartReducer(state = initState, action) {
       localStorage.setItem(KEY_CART, JSON.stringify(newState.cart));
       return { ...newState };
     }
+    case types.REMOVE_CART: {
+      newState = { ...newState, cart: [] };
+      localStorage.removeItem(KEY_CART);
+      return { ...newState };
+    }
     default:
       return state;
   }
 }
-

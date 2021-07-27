@@ -2,6 +2,7 @@ import * as actionType from "../../constants/actionConst";
 
 const stateInitial = {
   Product: [],
+  ProductSearch: [],
   filter: {},
   pagination: {
     _page: 1,
@@ -23,6 +24,9 @@ export default function productReducer(state = stateInitial, action) {
     case actionType.CHANGE_FILTER:
       state = { ...state, filter: action.payload };
       return state;
+    case actionType.GET_PRODUCT_SEARCH_SC:
+      newState = { ...newState, ProductSearch: action.payload.data };
+      return { ...newState };
     default:
       return state;
   }
