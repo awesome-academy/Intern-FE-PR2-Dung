@@ -1,11 +1,20 @@
-import { Input, Form, Select, Button, Modal } from "antd";
-import React, { useState } from "react";
+import { Input, Form, Select, Button, Modal, Row, Col } from "antd";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { formatCost, handleTotalCost } from "../../component";
-import { addOrder, removeCart } from "../../redux/action";
+import { handleTotalCost } from "../../component";
+import {
+  addOrder,
+  editDiscount,
+  getDiscount,
+  removeCart,
+} from "../../redux/action";
+import { home } from "../../constants/router";
+// import { addOrder, removeCart } from "../../redux/action";
 import "./style.scss";
+import { ToastContainer, toast } from "react-toastify";
+
 const { Option } = Select;
 
 const formItemLayout = {
@@ -43,13 +52,28 @@ const tailFormItemLayout = {
 export default function PaymentPage() {
   const user = useSelector((state) => state.usersReducer.users);
   const cart = useSelector((state) => state.cartReducer.cart);
-
+  const discount = useSelector((state) => state.discountReducer.discount);
   const { t } = useTranslation();
   const [form] = Form.useForm();
 
   const [valuePayMethod, setValuePayMethod] = useState("ZaloPay");
+  const [valueSearch, setValueSearch] = useState("");
+
+  const [statusBtnDiscount, setSatusBtnDiscount] = useState("APPLY");
 
   const dispatch = useDispatch();
+
+  const toastAppLySc = () =>
+    toast.success(t("successfully applied discount code"));
+
+  const toastPaymentSc = () => toast.success(t("Payment success"));
+
+  const toastCancelSc = () =>
+    toast.success(t("successfully cancel discount code"));
+
+  const toastApplyEr = () =>
+    toast.warning(t("The discount code is incorrect or has expired"));
+
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
@@ -91,7 +115,7 @@ export default function PaymentPage() {
     },
   ];
 
-  function handlePaySuccess() {
+  const handlePaySuccess = () => {
     Modal.success({
       title: t("Order success"),
       content: (
@@ -114,28 +138,72 @@ export default function PaymentPage() {
           </tr>
           <tr>
             <td> Total cost :</td>
-            <td> {formatCost(handleTotalCost(cart))}</td>
+            <td>
+              {statusBtnDiscount === "CANCEL"
+                ? handleTotalCost(cart, discount[0].discount)
+                : handleTotalCost(cart)}
+            </td>
           </tr>
         </table>
       ),
-      okButtonProps: { type: "link", href: "/" },
+      onOk() {
+        dispatch(removeCart());
+        toastPaymentSc();
+      },
+      okButtonProps: { type: "link", href: `${home}` },
     });
-  }
+  };
+
+  const handleApplyBtn = () => {
+    if (discount.length !== 0) {
+      setSatusBtnDiscount("CANCEL");
+      toastAppLySc();
+    } else toastApplyEr();
+  };
+
+  const handleCancelBtn = () => {
+    setSatusBtnDiscount("APPLY");
+    toastCancelSc();
+  };
 
   const onFinish = (values) => {
-    dispatch(
-      addOrder({
-        ...values,
-        cart: [...cart],
-        totalCost: handleTotalCost(cart),
-        payMethod: valuePayMethod,
-      })
-    );
-    dispatch(removeCart());
+    if (statusBtnDiscount === "CANCEL") {
+      dispatch(
+        addOrder({
+          ...values,
+          cart: [...cart],
+          totalCost: handleTotalCost(cart, discount.discount),
+          payMethod: valuePayMethod,
+        })
+      );
+
+      dispatch(
+        editDiscount({ id: discount.id, data: discount.count.quantity - 1 })
+      );
+    } else
+      dispatch(
+        addOrder({
+          ...values,
+          cart: [...cart],
+          totalCost: handleTotalCost(cart),
+          payMethod: valuePayMethod,
+          codeDiscount: null,
+        })
+      );
   };
+
+  const handleSearchDiscount = (e) => {
+    setValueSearch(e.target.value);
+    dispatch(getDiscount(e.target.value));
+  };
+
+  useEffect(() => {
+    form.setFieldsValue(discount[0]);
+  }, [discount]);
 
   return (
     <main className="payment-page">
+      <ToastContainer />
       <section className="product-page__main--banner">
         <h1>{t("Payment")}</h1>
         <div className="breadCcrumb">
@@ -222,14 +290,39 @@ export default function PaymentPage() {
                 >
                   <Input placeholder={t("Please input your Address")} />
                 </Form.Item>
-                <Form.Item
-                  {...formItemLayout}
-                  labelAlign="left"
-                  name="code discount"
-                  label={t("discount")}
-                >
-                  <Input />
-                </Form.Item>
+
+                <Row>
+                  <Col span={20}>
+                    <Form.Item
+                      {...formItemLayout}
+                      labelAlign="left"
+                      label={t("discount")}
+                      name="codeDiscount"
+                    >
+                      <Input
+                        className="ml-2"
+                        onChange={handleSearchDiscount}
+                        value={valueSearch}
+                      />
+                    </Form.Item>
+                  </Col>
+                  <Col span={4}>
+                    {statusBtnDiscount === "APPLY" ? (
+                      <Button
+                        type="primary"
+                        disabled={valueSearch === ""}
+                        onClick={handleApplyBtn}
+                      >
+                        Apply
+                      </Button>
+                    ) : (
+                      <Button type="primary" onClick={handleCancelBtn}>
+                        Cancel
+                      </Button>
+                    )}
+                  </Col>
+                </Row>
+
                 <Form.Item {...tailFormItemLayout}>
                   <Button
                     type="primary"

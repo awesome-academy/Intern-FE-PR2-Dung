@@ -12,11 +12,12 @@ export const setRating = (rating) => {
   return ratings;
 };
 
-export const handleTotalCost = (dataCart) => {
-  const totalCost = dataCart.reduce((total, cart) => {
+export const handleTotalCost = (dataCart, discount = 0) => {
+  let totalCost = dataCart.reduce((total, cart) => {
     return (total += cart.priceNew * cart.count);
   }, 0);
 
+  totalCost = totalCost - (totalCost * discount) / 100;
   return totalCost;
 };
 

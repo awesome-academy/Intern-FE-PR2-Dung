@@ -5,11 +5,16 @@ import "./style.scss";
 import * as link from "../../constants/router";
 import { useTranslation } from "react-i18next";
 import { setRating } from "../../component";
-import { InputNumber, Tabs } from "antd";
+import { InputNumber, Tabs, Tooltip } from "antd";
 import "antd/dist/antd.css";
 import ReveiwProduct from "../../component/componentDetailPage/review";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, getProduct } from "../../redux/action";
+import {
+  addToCart,
+  addWishList,
+  getProduct,
+  removeWishList,
+} from "../../redux/action";
 import ProductVeiwed from "../../component/componentDetailPage/slideProductVeiwed";
 import { KEY_PRODUCT_VEIWED } from "../../constants/urlConst";
 import { ToastContainer, toast } from "react-toastify";
@@ -20,6 +25,7 @@ export default function DetailPage() {
   const data = useSelector((state) => state.productsReducer.Product);
   const isLoading = useSelector((state) => state.loading.isLoading);
   const pagi = useSelector((state) => state.productsReducer.pagination);
+  const wishList = useSelector((state) => state.wishListReducer.wishList);
 
   const { t } = useTranslation();
   const param = useParams();
@@ -36,8 +42,17 @@ export default function DetailPage() {
   }, [param.id]);
 
   const [dataOrder, setDataOrder] = useState({ number: 1, size: null });
+  const [isWishList, setIsWishList] = useState(false);
 
   const addToCartSCToast = () => toast.success(t("Add to cart success "));
+
+  useEffect(() => {
+    if (data.length !== 0) {
+      wishList.findIndex((item) => item.id === dataProductDetail.id) === -1
+        ? setIsWishList(false)
+        : setIsWishList(true);
+    }
+  }, [wishList]);
 
   useEffect(() => {
     if (dataProductDetail) {
@@ -138,6 +153,25 @@ export default function DetailPage() {
                 >
                   {t("addtocart")}
                 </button>
+                <Tooltip placement="topLeft" title={t("heard")}>
+                  <button
+                    className="btn-item ml-3"
+                    onClick={() => {
+                      if (isWishList === false) {
+                        dispatch(addWishList(dataProductDetail));
+                      } else {
+                        dispatch(removeWishList(dataProductDetail.id));
+                      }
+                      setIsWishList(!isWishList);
+                    }}
+                  >
+                    {isWishList === false ? (
+                      <i className="far fa-heart"></i>
+                    ) : (
+                      <i className="fas fa-heart"></i>
+                    )}
+                  </button>
+                </Tooltip>
               </div>
               <div className="productdetail__moreinf mt-4">
                 <div className="mb-2">

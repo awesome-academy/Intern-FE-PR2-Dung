@@ -1,5 +1,5 @@
 import { Tooltip, Modal } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "antd/dist/antd.css";
 import { setRating } from "../../../component";
@@ -8,16 +8,27 @@ import "./style.scss";
 import ModalVeiw from "../modalVeiwProduct";
 import { detail } from "../../../constants/router";
 import { ToastContainer, toast } from "react-toastify";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../redux/action";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, addWishList, removeWishList } from "../../../redux/action";
 
 export default function ItemProduct(props) {
   const product = props.product;
-  const [img, setImg] = useState(product.imageMain);
+  const wishList = useSelector((state) => state.wishListReducer.wishList);
+
+  useEffect(() => {
+    wishList.findIndex((item) => item.id === product.id) === -1
+      ? setIsWishList(false)
+      : setIsWishList(true);
+  }, [wishList]);
+
   const discount = setDiscount(product.priceOld, product.priceNew);
+
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
+  const [img, setImg] = useState(product.imageMain);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isWishList, setIsWishList] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -82,8 +93,22 @@ export default function ItemProduct(props) {
             </button>
           </Tooltip>
           <Tooltip placement="topLeft" title={t("heard")}>
-            <button className="btn-item">
-              <i className="far fa-heart"></i>
+            <button
+              className="btn-item"
+              onClick={() => {
+                if (isWishList === false) {
+                  dispatch(addWishList(product));
+                } else {
+                  dispatch(removeWishList(product.id));
+                }
+                setIsWishList(!isWishList);
+              }}
+            >
+              {isWishList === false ? (
+                <i className="far fa-heart"></i>
+              ) : (
+                <i className="fas fa-heart"></i>
+              )}
             </button>
           </Tooltip>
         </div>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrder } from "../../../redux/action";
 import { Tooltip, Button, Pagination, Modal } from "antd";
 import "./style.scss";
+
 export default function ShowOrder({ userEmail }) {
   const dataOrders = useSelector((state) => state.orderReducer.orders);
   const isLoading = useSelector((state) => state.loading.isLoading);
@@ -54,7 +55,7 @@ export default function ShowOrder({ userEmail }) {
               <tr key={index}>
                 <th scope="row">{index}</th>
                 <td>{item.totalCost}</td>
-                <td>{item.discount || "none"}</td>
+                <td>{item.codeDiscount || "none"}</td>
                 <td>{item.payMethod}</td>
                 <td>{date.toDateString()}</td>
                 <td>

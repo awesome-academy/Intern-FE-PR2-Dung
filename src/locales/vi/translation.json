@@ -133,5 +133,9 @@
   "action": "Hoạt động",
   "See details": "Xem chi tiết",
   "History Orders": "Đơn đặt hàng lịch sử",
+  "successfully applied discount code": "áp dụng thành công mã giảm giá",
+  "successfully cancel discount code": "hủy mã giảm giá thành công",
+  "The discount code is incorrect or has expired": "Mã giảm giá không chính xác hoặc đã hết hạn",
+  "Payment success": "Thanh toán thành công",
   "full name": "Họ và tên"
 }

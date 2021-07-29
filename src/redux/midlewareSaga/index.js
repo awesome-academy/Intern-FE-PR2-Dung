@@ -1,5 +1,6 @@
 import { fork } from "redux-saga/effects";
 import commentSaga from "./commentSaga";
+import discountSaga from "./discountSaga";
 import filterSaga from "./filterSaga";
 import order from "./orderSaga";
 import productSaga from "./productSaga";
@@ -11,4 +12,5 @@ export default function* Saga() {
   yield fork(filterSaga);
   yield fork(commentSaga);
   yield fork(order);
+  yield fork(discountSaga);
 }

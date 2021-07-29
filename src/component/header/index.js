@@ -11,7 +11,12 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductSearch, getUser, logout } from "../../redux/action";
+import {
+  getProductSearch,
+  getUser,
+  logout,
+  removeWishList,
+} from "../../redux/action";
 import jwt_decode from "jwt-decode";
 import * as linkRouter from "../../constants/router";
 
@@ -20,6 +25,7 @@ export default function Header() {
   const cart = useSelector((state) => state.cartReducer.cart);
   const userDB = useSelector((state) => state.usersReducer.users);
   const product = useSelector((state) => state.productsReducer.ProductSearch);
+  const wishList = useSelector((state) => state.wishListReducer.wishList);
 
   const [isShowBlockSearch, setIsShowBlockSearch] = useState(false);
   const [textSearch, setTextSearch] = useState("");
@@ -47,6 +53,7 @@ export default function Header() {
   }, []);
 
   const typeingTimeOutRef = useRef(null);
+  
   const handleSearchInput = (e) => {
     setTextSearch(e.target.value);
     if (typeingTimeOutRef.current) {
@@ -187,6 +194,32 @@ export default function Header() {
                 <i className="fas fa-shopping-cart"></i>
                 <div>{cart.length}</div>
               </Link>
+            </button>
+            <button className="btn-header btn-wishlist ml-2">
+              <i className="fas fa-heart"></i>
+              <div className="wish-list-count">{wishList.length}</div>
+              <div className="show_wish-list">
+                <table className="table table-responsive">
+                  {wishList.length === 0
+                    ? "There are no favorite products"
+                    : wishList.map((item) => (
+                        <tr key={item.id}>
+                          <td>
+                            <img src={item.imageMain} alt="product" />
+                          </td>
+                          <td>{item.name}</td>
+                          <td>
+                            <i
+                              className="fas fa-heart"
+                              onClick={() => {
+                                dispatch(removeWishList(item.id));
+                              }}
+                            ></i>
+                          </td>
+                        </tr>
+                      ))}
+                </table>
+              </div>
             </button>
           </div>
           <button
