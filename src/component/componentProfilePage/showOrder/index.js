@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrder } from "../../../redux/action";
 import { Tooltip, Button, Pagination, Modal } from "antd";
 import "./style.scss";
+import { formatCost } from "../../index";
 
 export default function ShowOrder({ userEmail }) {
   const dataOrders = useSelector((state) => state.orderReducer.orders);
@@ -44,6 +45,7 @@ export default function ShowOrder({ userEmail }) {
             <th scope="col">{t("discount")}</th>
             <th scope="col">{t("payment method")}</th>
             <th scope="col">{t("date")}</th>
+            <th scope="col">{t("status")}</th>
             <th scope="col">{t("action")}</th>
           </tr>
         </thead>
@@ -54,10 +56,11 @@ export default function ShowOrder({ userEmail }) {
             return (
               <tr key={index}>
                 <th scope="row">{index}</th>
-                <td>{item.totalCost}</td>
+                <td>{formatCost(item.totalCost)}</td>
                 <td>{item.codeDiscount || "none"}</td>
                 <td>{item.payMethod}</td>
                 <td>{date.toDateString()}</td>
+                <td>{item.status}</td>
                 <td>
                   <Tooltip placement="topLeft" title={text}>
                     <Button
@@ -98,9 +101,9 @@ export default function ShowOrder({ userEmail }) {
                     <img src={itemCart.imageMain} alt="product img" />
                   </th>
                   <td>{itemCart.name}</td>
-                  <td>{itemCart.priceNew}</td>
+                  <td>{formatCost(itemCart.priceNew)}</td>
                   <td>{itemCart.count}</td>
-                  <td>{itemCart.count * itemCart.priceNew}$</td>
+                  <td>{formatCost(itemCart.count * itemCart.priceNew)}</td>
                 </tr>
               ))}
           </tbody>

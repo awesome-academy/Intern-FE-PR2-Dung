@@ -4,11 +4,14 @@ import { getOrderAll } from "../../../../redux/action";
 import "./style.scss";
 
 import { Line } from "react-chartjs-2";
+import { useTranslation } from "react-i18next";
 
 export default function Dashboard() {
   const isLoading = useSelector((state) => state.loading.isLoading);
   const orders = useSelector((state) => state.orderReducer.orders);
+
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const data = {
     labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
@@ -34,7 +37,7 @@ export default function Dashboard() {
       ) : (
         <div className="text-center">
           <Line data={data} />
-          <h5 className="mt-2">Sales revenue by month</h5>
+          <h5 className="mt-2">{t("Sales revenue by month")}</h5>
         </div>
       )}
     </section>

@@ -16,6 +16,7 @@ import {
   Row,
   Col,
 } from "antd";
+import { useTranslation } from "react-i18next";
 const { Option } = Select;
 const formItemLayout = {
   labelCol: {
@@ -54,14 +55,15 @@ export default function ManagerProduct() {
   const tag = useSelector((state) => state.filter.tag);
   const [form] = Form.useForm();
 
+  const { t } = useTranslation();
   const [isModalEditProfile, setIsModalEditProfile] = useState(false);
   const [productEdit, setProductEdit] = useState(null);
   const [mode, setMode] = useState("ADD");
   const [textSearch, setTextSearch] = useState("");
 
-  const toastAddSc = () => toast.success("add product success");
-  const toastDeleteSc = () => toast.success("delete product success");
-  const toaStEditSc = () => toast.success("edit product success");
+  const toastAddSc = () => toast.success(t("add product success"));
+  const toastDeleteSc = () => toast.success(t("delete product success"));
+  const toaStEditSc = () => toast.success(t("edit product success"));
 
   const showModalEdit = () => {
     setIsModalEditProfile(true);
@@ -155,7 +157,7 @@ export default function ManagerProduct() {
                 showModalEdit();
               }}
             >
-              + ADD Product
+              +{t(" ADD Product")}
             </button>
 
             <input
@@ -178,9 +180,9 @@ export default function ManagerProduct() {
                 );
               }}
             >
-              <option value="">Feature</option>
-              <option value="desc">Hight to Low</option>
-              <option value="asc">Low to Hight</option>
+              <option value="">{t("Feature")}</option>
+              <option value="desc">{t("Hight to Low")}</option>
+              <option value="asc">{t("Low to Hight")}</option>
             </select>
             <button
               className="btn btn-warning"
@@ -200,13 +202,13 @@ export default function ManagerProduct() {
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">brand</th>
-                    <th scope="col">category</th>
-                    <th scope="col">price new</th>
-                    <th scope="col">price old</th>
-                    <th scope="col">Rating</th>
-                    <th scope="col">action</th>
+                    <th scope="col">{t("Name")}</th>
+                    <th scope="col">{t("brand")}</th>
+                    <th scope="col">{t("category")}</th>
+                    <th scope="col">{t("price new")}</th>
+                    <th scope="col">{t("price old")}</th>
+                    <th scope="col">{t("Rating")}</th>
+                    <th scope="col">{t("action")}</th>
                   </tr>
                 </thead>
                 <tbody>

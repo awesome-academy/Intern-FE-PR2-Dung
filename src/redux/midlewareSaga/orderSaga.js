@@ -1,7 +1,9 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getData, post } from "../../api/productApi/productApi";
+import { getData, patch, post } from "../../api/productApi/productApi";
 import {
   ADD_ORDER,
+  DELETE_ORDER,
+  EDIT_ORDER,
   GET_ORDER,
   GET_ORDER_ALL,
 } from "../../constants/actionConst";
@@ -9,11 +11,14 @@ import { URL_ORDER } from "../../constants/urlConst";
 
 import * as action_func from "../action";
 import queryString from "query-string";
+import { deleteData } from "../../api/usersApi";
 
 export default function* order() {
   yield takeLatest(ADD_ORDER, addOrder);
   yield takeLatest(GET_ORDER, getOrder);
   yield takeLatest(GET_ORDER_ALL, getOrderAll);
+  yield takeLatest(EDIT_ORDER, editOrder);
+  yield takeLatest(DELETE_ORDER, deleteOrder);
 }
 
 function* addOrder(action) {
@@ -47,5 +52,31 @@ function* getOrderAll() {
     yield put(action_func.getOrderAllSc(res.data));
   } catch (error) {
     yield put(action_func.getOrderAllEr(error));
+  }
+}
+
+function* editOrder(action) {
+  try {
+    yield call(patch, `${URL_ORDER}/${action.payload.id}`, action.payload.data);
+    yield getOrder({
+      payload: {
+        _page: 1,
+      },
+    });
+  } catch (error) {
+    yield put(action_func.editOrderEr(error));
+  }
+}
+
+function* deleteOrder(action) {
+  try {
+    yield call(deleteData, `${URL_ORDER}/${action.payload}`);
+    yield getOrder({
+      payload: {
+        _page: 1,
+      },
+    });
+  } catch (error) {
+    yield put(action_func.deleteOrderEr(error));
   }
 }
