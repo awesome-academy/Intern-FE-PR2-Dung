@@ -1,4 +1,4 @@
-import { GET_ORDER_SC } from "../../constants/actionConst";
+import { GET_ORDER_ALL_SC, GET_ORDER_SC } from "../../constants/actionConst";
 
 const initState = {
   orders: [],
@@ -19,6 +19,14 @@ export default function ordersReducer(state = initState, action) {
         pagi: action.payload.pagination,
       };
       return { ...newState };
+
+    case GET_ORDER_ALL_SC: {
+      newState = {
+        ...newState,
+        orders: action.payload,
+      };
+      return { ...newState };
+    }
     default:
       return { ...state };
   }

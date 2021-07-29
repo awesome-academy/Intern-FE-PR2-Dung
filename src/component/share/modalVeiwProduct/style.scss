@@ -1,5 +1,14 @@
 @import "../../../style//var";
 .modal-veiw-product {
+  .size-filter__item {
+    position: relative;
+
+    label {
+      position: relative;
+      z-index: 5;
+    }
+  }
+
   .size {
     input {
       &:checked {
@@ -31,7 +40,7 @@
 
   .block-btn {
     margin-top: 1rem;
-    
+
     .ant-input-number,
     .addtocart_modal {
       border: 2px solid black;

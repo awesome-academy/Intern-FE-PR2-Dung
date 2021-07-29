@@ -17,8 +17,12 @@ export const handleTotalCost = (dataCart) => {
     return (total += cart.priceNew * cart.count);
   }, 0);
 
+  return totalCost;
+};
+
+export const formatCost = (cost) => {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-  }).format(totalCost);
+  }).format(cost);
 };

@@ -39,7 +39,7 @@ export default function SignUpPage() {
   };
 
   const onFinish = (values) => {
-    dispatch(signUp(values));
+    dispatch(signUp({ ...values, idRole: 1 }));
   };
 
   if (statusSignUp === true) {
@@ -156,7 +156,20 @@ export default function SignUpPage() {
               >
                 <Input />
               </Form.Item>
-
+              <Form.Item
+                name="fullName"
+                label={t("full name")}
+                tooltip={t("What do you want others to call you")}
+                rules={[
+                  {
+                    required: true,
+                    message: t("Please input your userName"),
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
               <Form.Item
                 name="phone"
                 label={t("Phone Number")}

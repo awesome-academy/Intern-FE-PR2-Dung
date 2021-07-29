@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { changeCart, deleteCart } from "../../redux/action";
 import * as linkRouter from "../../constants/router";
-import { handleTotalCost } from "../../component";
+import { formatCost, handleTotalCost } from "../../component";
 
 export default function CartPage() {
   const { t } = useTranslation();
@@ -74,12 +74,7 @@ export default function CartPage() {
                           }}
                         />
                       </td>
-                      <td>
-                        {new Intl.NumberFormat("en-US", {
-                          style: "currency",
-                          currency: "USD",
-                        }).format(item.count * item.priceNew)}
-                      </td>
+                      <td>{formatCost(item.count * item.priceNew)}</td>
                       <td>
                         <Popconfirm
                           title="Are you sure to delete this task?"
@@ -109,7 +104,7 @@ export default function CartPage() {
               <tbody>
                 <tr>
                   <th>{t("Order Total")}</th>
-                  <td>{handleTotalCost(dataCart)}</td>
+                  <td>{formatCost(handleTotalCost(dataCart))}</td>
                 </tr>
                 <tr>
                   <td></td>

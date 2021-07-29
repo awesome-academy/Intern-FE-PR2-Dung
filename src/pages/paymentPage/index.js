@@ -2,8 +2,8 @@ import { Input, Form, Select, Button, Modal } from "antd";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import { handleTotalCost } from "../../component";
+import { Link } from "react-router-dom";
+import { formatCost, handleTotalCost } from "../../component";
 import { addOrder, removeCart } from "../../redux/action";
 import "./style.scss";
 const { Option } = Select;
@@ -114,13 +114,10 @@ export default function PaymentPage() {
           </tr>
           <tr>
             <td> Total cost :</td>
-            <td> {handleTotalCost(cart)}</td>
+            <td> {formatCost(handleTotalCost(cart))}</td>
           </tr>
         </table>
       ),
-      onOk() {
-        return <Redirect to="/" />;
-      },
       okButtonProps: { type: "link", href: "/" },
     });
   }

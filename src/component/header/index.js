@@ -106,7 +106,11 @@ export default function Header() {
           <div className="d-flex mr-2 header_infor--user">
             <img
               className="avatar-user__icon mr-3"
-              src={userDB[0] ? userDB[0].avatar : AVATAR_DEFAULT}
+              src={
+                userDB[0] && userDB[0].avatar
+                  ? userDB[0].avatar
+                  : AVATAR_DEFAULT
+              }
               alt="avt user"
             ></img>
             <div className="header_infor--hident">
