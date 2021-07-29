@@ -26,3 +26,7 @@ export const KEY_CART = "KEY_CART";
 
 export const AVATAR_DEFAULT =
   "https://www.bootdey.com/img/Content/avatar/avatar7.png";
+
+export const KEY_WISH_LIST = "KEY_WISH_LIST";
+
+export const URL_DISCOUNT = "http://localhost:4444/api/discount";

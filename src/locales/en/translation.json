@@ -151,5 +151,9 @@
   "action": "Action",
   "See details": "See details",
   "History Orders": "History Orders",
+  "successfully applied discount code": "successfully applied discount code",
+  "successfully cancel discount code": "successfully cancel discount code",
+  "The discount code is incorrect or has expired": "The discount code is incorrect or has expired",
+  "Payment success": "Payment success",
   "full name": "Full Name"
 }

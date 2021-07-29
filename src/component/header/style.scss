@@ -4,7 +4,7 @@
 .header {
   position: sticky;
   position: -webkit-sticky;
-  top: 0; /* required */
+  top: 0;
   width: 100%;
   background-color: white;
   z-index: 10;
@@ -178,9 +178,14 @@
       .btn-cart {
         position: relative;
 
+        a {
+          color: black;
+        }
+
         div {
-          width: 30px;
-          height: 25px;
+          color: white;
+          width: 25px;
+          height: 20px;
           background-color: lightsalmon;
           position: absolute;
           top: 0;
@@ -191,21 +196,64 @@
       }
 
       .btn-header {
+        outline: none;
         background: none;
         border: 1px solid black;
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         margin-right: 0.5rem;
         transition: all 0.5s;
+
         &:hover {
           color: lightpink;
           border: 1px solid lightpink;
         }
       }
+
+      .btn-wishlist {
+        position: relative;
+
+        .wish-list-count {
+          color: white;
+          width: 25px;
+          height: 20px;
+          background-color: lightsalmon;
+          position: absolute;
+          top: 0;
+          right: -10px;
+          top: 20%;
+          border-radius: 50%;
+        }
+
+        .show_wish-list {
+          left: -100px;
+          display: none;
+          position: absolute;
+          width: 300px;
+          max-height: 400px;
+          background-color: white;
+          padding: 0.2rem;
+          overflow-y: scroll;
+          transition: all 0.5s;
+          box-shadow: 5px 5px 10px $lightDark;
+
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+
+        &:hover {
+          .show_wish-list {
+            display: block;
+          }
+        }
+      }
     }
   }
 }
+
 @include Responsive($sm) {
 }
 

@@ -237,6 +237,37 @@ export const getProductSearchEr = (err) => {
   };
 };
 
+export const addWishList = (data) => {
+  return {
+    type: actionType.ADD_WISH_LIST,
+    payload: data,
+  };
+};
+
+export const removeWishList = (data) => {
+  return {
+    type: actionType.REMOVE_WISH_LIST,
+    payload: data,
+  };
+};
+
+export const getDiscount = (data) => {
+  return { type: actionType.GET_DISCOUNT, payload: data };
+};
+export const getDiscountSc = (data) => {
+  return { type: actionType.GET_DISCOUNT_SC, payload: data };
+};
+export const getDiscountEr = (data) => {
+  return { type: actionType.GET_DISCOUNT_ER, payload: data };
+};
+
+export const editDiscount = (data) => {
+  return { type: actionType.EDIT_DISCOUNT, payload: data };
+};
+export const editDiscountEr = (data) => {
+  return { type: actionType.EDIT_DISCOUNT_ER, payload: data };
+};
+
 export const getOrderAll = () => {
   return { type: actionType.GET_ORDER_ALL };
 };
