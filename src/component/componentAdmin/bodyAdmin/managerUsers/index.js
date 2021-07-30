@@ -53,6 +53,8 @@ export default function ManagerUser() {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.loading.isLoading);
   const users = useSelector((state) => state.usersReducer.users);
+  const statusSignUp = useSelector((state) => state.usersReducer.statusSignUp);
+
   const { t } = useTranslation();
 
   const [form] = Form.useForm();
@@ -62,9 +64,18 @@ export default function ManagerUser() {
   const [mode, setMode] = useState("ADD");
   const [textSearch, setTextSearch] = useState("");
 
-  const toastAddSc = () => toast.success("add product success");
-  const toastDeleteSc = () => toast.success("delete product success");
-  const toaStEditSc = () => toast.success("edit product success");
+  const toastDeleteSc = () => toast.success(t("delete user success"));
+
+  const toaStEditSc = () => toast.success(t("edit user success"));
+
+  const toastSignupSc = () => toast.success(t("add user success"));
+
+  const toaStSignUpEr = () => toast.warning(t("Email already used "));
+
+  useEffect(() => {
+    if (statusSignUp === true) toastSignupSc();
+    if (statusSignUp === false) toaStSignUpEr();
+  }, [statusSignUp]);
 
   const showModalEdit = () => {
     setIsModalEditProfile(true);
@@ -80,7 +91,6 @@ export default function ManagerUser() {
       toaStEditSc();
       dispatch(editUser({ id: userEdit.id, data: { ...value }, role: true }));
     } else if (mode === "ADD") {
-      toastAddSc();
       dispatch(signUp({ ...value, idRole: 1 }));
     }
   };
@@ -129,7 +139,7 @@ export default function ManagerUser() {
                 showModalEdit();
               }}
             >
-              + ADD USER
+              +{t(" ADD USER")}
             </button>
             <input
               type="text"
@@ -147,12 +157,12 @@ export default function ManagerUser() {
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">full Name</th>
-                    <th scope="col">user Name</th>
-                    <th scope="col">email</th>
-                    <th scope="col">Role</th>
-                    <th scope="col">address</th>
-                    <th scope="col">action</th>
+                    <th scope="col">{t("full Name")}</th>
+                    <th scope="col">{t("user Name")}</th>
+                    <th scope="col">{t("email")}</th>
+                    <th scope="col">{t("Role")}</th>
+                    <th scope="col">{t("address")}</th>
+                    <th scope="col">{t("action")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -325,13 +335,13 @@ export default function ManagerUser() {
             labelAlign="left"
           >
             <Select>
-              <Option value={1}>User</Option>
-              <Option value={2}>Admin</Option>
+              <Option value={1}>{t("User")}</Option>
+              <Option value={2}>{t("Admin")}</Option>
             </Select>
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
             <Button type="primary" onClick={() => {}} htmlType="submit">
-              Submit
+              {t("Submit")}
             </Button>
           </Form.Item>
         </Form>

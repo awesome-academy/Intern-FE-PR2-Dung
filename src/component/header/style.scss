@@ -115,139 +115,118 @@
         color: lightsalmon;
       }
     }
+  }
+}
 
-    .lang {
-      text-align: end;
+.navbar {
+  border-top: 1px solid rgba(150, 140, 140, 0.404);
 
-      button {
-        margin-right: 0.5rem;
-        width: 50px;
-        height: 35px;
-        border: 1px solid rgba(150, 140, 140, 0.404);
+  .nav-item {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      height: 2px;
+      background-color: lightpink;
+      width: 0%;
+      top: 100%;
+      transition: all 0.5s;
+    }
+
+    .nav-link {
+      text-transform: uppercase;
+      transition: all 0.5s;
+      &:hover {
+        color: lightpink;
       }
+    }
 
-      .VI {
-        background-image: url(https://static.xx.fbcdn.net/images/emoji.php/v9/ta2/1.5/32/1f1fb_1f1f3.png);
-        background-size: 100% 100%;
-      }
-
-      .EN {
-        background-image: url(https://static.xx.fbcdn.net/images/emoji.php/v9/tcb/1.5/32/1f3f4_e0067_e0062_e0065_e006e_e0067_e007f.png);
-        background-size: 100% 100%;
+    &:hover {
+      &::before {
+        width: 60%;
       }
     }
   }
 
-  .navbar {
-    border-top: 1px solid rgba(150, 140, 140, 0.404);
+  .active {
+    a {
+      color: lightpink !important;
+    }
+  }
 
-    .nav-item {
+  .list-btn-header {
+    .btn-cart {
       position: relative;
-      &::before {
-        position: absolute;
-        content: "";
-        height: 2px;
-        background-color: lightpink;
-        width: 0%;
-        top: 100%;
-        transition: all 0.5s;
+
+      a {
+        color: black;
       }
 
-      .nav-link {
-        text-transform: uppercase;
+      div {
+        color: white;
+        width: 25px;
+        height: 20px;
+        background-color: lightsalmon;
+        position: absolute;
+        top: 0;
+        right: -10px;
+        top: 20%;
+        border-radius: 50%;
+      }
+    }
+
+    .btn-header {
+      outline: none;
+      background: none;
+      border: 1px solid black;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      transition: all 0.5s;
+
+      &:hover {
+        color: lightpink;
+        border: 1px solid lightpink;
+      }
+    }
+
+    .btn-wishlist {
+      position: relative;
+
+      .wish-list-count {
+        color: white;
+        width: 25px;
+        height: 20px;
+        background-color: lightsalmon;
+        position: absolute;
+        top: 0;
+        right: -10px;
+        top: 20%;
+        border-radius: 50%;
+      }
+
+      .show_wish-list {
+        left: -100px;
+        display: none;
+        position: absolute;
+        width: 300px;
+        max-height: 400px;
+        background-color: white;
+        padding: 0.2rem;
+        overflow-y: scroll;
         transition: all 0.5s;
-        &:hover {
-          color: lightpink;
+        box-shadow: 5px 5px 10px $lightDark;
+
+        img {
+          width: 50px;
+          height: 50px;
         }
       }
 
       &:hover {
-        &::before {
-          width: 60%;
-        }
-      }
-    }
-
-    .active {
-      a {
-        color: lightpink !important;
-      }
-    }
-
-    .list-btn-header {
-      .btn-cart {
-        position: relative;
-
-        a {
-          color: black;
-        }
-
-        div {
-          color: white;
-          width: 25px;
-          height: 20px;
-          background-color: lightsalmon;
-          position: absolute;
-          top: 0;
-          right: -10px;
-          top: 20%;
-          border-radius: 50%;
-        }
-      }
-
-      .btn-header {
-        outline: none;
-        background: none;
-        border: 1px solid black;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-right: 0.5rem;
-        transition: all 0.5s;
-
-        &:hover {
-          color: lightpink;
-          border: 1px solid lightpink;
-        }
-      }
-
-      .btn-wishlist {
-        position: relative;
-
-        .wish-list-count {
-          color: white;
-          width: 25px;
-          height: 20px;
-          background-color: lightsalmon;
-          position: absolute;
-          top: 0;
-          right: -10px;
-          top: 20%;
-          border-radius: 50%;
-        }
-
         .show_wish-list {
-          left: -100px;
-          display: none;
-          position: absolute;
-          width: 300px;
-          max-height: 400px;
-          background-color: white;
-          padding: 0.2rem;
-          overflow-y: scroll;
-          transition: all 0.5s;
-          box-shadow: 5px 5px 10px $lightDark;
-
-          img {
-            width: 50px;
-            height: 50px;
-          }
-        }
-
-        &:hover {
-          .show_wish-list {
-            display: block;
-          }
+          display: block;
         }
       }
     }
@@ -266,5 +245,26 @@
   }
   100% {
     transform: rotate(-3deg);
+  }
+}
+
+.lang {
+  text-align: end;
+
+  button {
+    margin-right: 0.5rem;
+    width: 50px;
+    height: 35px;
+    border: 1px solid rgba(150, 140, 140, 0.404);
+  }
+
+  .VI {
+    background-image: url(https://static.xx.fbcdn.net/images/emoji.php/v9/ta2/1.5/32/1f1fb_1f1f3.png);
+    background-size: 100% 100%;
+  }
+
+  .EN {
+    background-image: url(https://static.xx.fbcdn.net/images/emoji.php/v9/tcb/1.5/32/1f3f4_e0067_e0062_e0065_e006e_e0067_e007f.png);
+    background-size: 100% 100%;
   }
 }

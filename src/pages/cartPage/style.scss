@@ -1,14 +1,14 @@
 @import "../../style/var";
 
-.cart-page {
-  .infor-order {
-    box-sizing: border-box;
-    padding-top: 1rem;
-    width: 100%;
-    border: 1px solid $lightDark;
-    height: 300px;
-  }
+.infor-order {
+  box-sizing: border-box;
+  padding-top: 1rem;
+  width: 100%;
+  border: 1px solid $lightDark;
+  height: 300px;
+}
 
+.cart-page {
   .infor-cart {
     text-align: center;
     max-height: 500px;

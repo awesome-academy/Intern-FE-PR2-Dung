@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { handleTotalCost } from "../../component";
+import { formatCost, handleTotalCost } from "../../component";
 import {
   addOrder,
   editDiscount,
@@ -11,7 +11,6 @@ import {
   removeCart,
 } from "../../redux/action";
 import { home } from "../../constants/router";
-// import { addOrder, removeCart } from "../../redux/action";
 import "./style.scss";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -60,6 +59,7 @@ export default function PaymentPage() {
   const [valueSearch, setValueSearch] = useState("");
 
   const [statusBtnDiscount, setSatusBtnDiscount] = useState("APPLY");
+  const [totalCost, setTotalCost] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -121,8 +121,8 @@ export default function PaymentPage() {
       content: (
         <table>
           <tr>
-            <td> UserName :</td>
-            <td> {user[0].userName}</td>
+            <td> Fullname :</td>
+            <td> {user[0].fullName}</td>
           </tr>
           <tr>
             <td> Address :</td>
@@ -171,8 +171,9 @@ export default function PaymentPage() {
       dispatch(
         addOrder({
           ...values,
+          status: "NEW",
           cart: [...cart],
-          totalCost: handleTotalCost(cart, discount.discount),
+          totalCost: handleTotalCost(cart, discount[0].discount),
           payMethod: valuePayMethod,
         })
       );
@@ -184,6 +185,7 @@ export default function PaymentPage() {
       dispatch(
         addOrder({
           ...values,
+          status: "NEW",
           cart: [...cart],
           totalCost: handleTotalCost(cart),
           payMethod: valuePayMethod,
@@ -201,6 +203,12 @@ export default function PaymentPage() {
     form.setFieldsValue(discount[0]);
   }, [discount]);
 
+  useEffect(() => {
+    statusBtnDiscount === "CANCEL"
+      ? setTotalCost(formatCost(handleTotalCost(cart, discount[0].discount)))
+      : setTotalCost(formatCost(handleTotalCost(cart)));
+  }, [statusBtnDiscount, cart]);
+
   return (
     <main className="payment-page">
       <ToastContainer />
@@ -216,7 +224,7 @@ export default function PaymentPage() {
       <section className="payment-page__container">
         <div className="container">
           <div className="row mt-5">
-            <div className="information-user col-6 ">
+            <div className="information-user col-12 col-md-4 ">
               <h3>{t("Information User")}</h3>
               <Form
                 form={form}
@@ -245,7 +253,7 @@ export default function PaymentPage() {
                 <Form.Item
                   {...formItemLayout}
                   labelAlign="left"
-                  name="userName"
+                  name="fullName"
                   label={t("Name")}
                   rules={[
                     {
@@ -336,7 +344,7 @@ export default function PaymentPage() {
                 </Form.Item>
               </Form>
             </div>
-            <div className="information-cart col-6 ">
+            <div className="information-cart col-md-4 col-12 col-xs-6 ">
               <h3>{t("payment method")}</h3>
 
               <div className="payment_method">
@@ -362,6 +370,32 @@ export default function PaymentPage() {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="infor-order col-md-3 col-12 col-xs-6 mt-5 ml-4 ">
+              <h4>{t("SUMMARY")}</h4>
+              <hr />
+              <h5>{t("Estimate Shipping and Tax")}</h5>
+              <table className="table">
+                <tbody>
+                  <tr>
+                    <th>{t("Order Total")}$</th>
+                    <td>{formatCost(handleTotalCost(cart))}</td>
+                  </tr>
+                  <tr>
+                    <th>{t("Discount")}</th>
+                    <td>
+                      {statusBtnDiscount === "APPLY"
+                        ? "0"
+                        : discount[0].discount}
+                      %
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>{t("Total Cost")}</th>
+                    <td>{totalCost}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

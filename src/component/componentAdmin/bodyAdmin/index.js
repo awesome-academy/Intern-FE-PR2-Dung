@@ -5,6 +5,7 @@ import * as linkRouter from "../../../constants/router";
 import Dashboard from "./dashboard";
 import ManagerUser from "./managerUsers";
 import ManagerProduct from "./managerProduct";
+import ManagerOrders from "./managerOrders";
 
 export default function BodyAdmin() {
   return (
@@ -19,7 +20,9 @@ export default function BodyAdmin() {
         <Route path={linkRouter.adminProducts}>
           <ManagerProduct />
         </Route>
-        <Route path={linkRouter.adminOrders}>ordr</Route>
+        <Route path={linkRouter.adminOrders}>
+          <ManagerOrders />
+        </Route>
       </Switch>
     </section>
   );
